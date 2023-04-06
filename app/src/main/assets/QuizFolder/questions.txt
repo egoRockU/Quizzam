@@ -1,0 +1,53 @@
+1. What is RegEx?
+A. Regrets-
+B. Regarasauros-
+C. Regular Expressions*
+D. Regular Exceptions-
+---
+2. What is 'int' data type?
+A. Integral-
+B. Inheritance-
+C. Ilocano-
+D. Integer*
+---
+3. What is 'str' data type?
+A. String*
+B. Strong-
+C. Streng-
+---
+4. Boolean can only have value ___ and false.
+A. Real-
+B. Yes-
+C. Correct-
+D. True*
+---
+5. What is 'double' data type?
+A. int but more accurate*
+B. double digits-
+C. can store more than one type-
+---
+6. Can boolean store Yes or No as it's value?
+A. Yes-
+B. No*
+---
+7. Which one is NOT a programming language?
+A. Python-
+B. HTML*
+C. Java-
+D. Javascript-
+E. Typescript-
+---
+8. 8<5.
+A. True-
+B. False*
+---
+9. "hotdog" == "HOTDOG".
+A. True-
+B. False*
+---
+10. Which data structure uses heirarchical model?
+A. Stack-
+B. Queue-
+C. Lists-
+D. Trees*
+---
