@@ -94,8 +94,25 @@ public class QuizActivity extends AppCompatActivity {
         items = questionsKeys.size();
 
         //Display loop
-        questionIndex = random.nextInt(questionsKeys.size()); //get random index from questions keyset
+        String answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
+        choicesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if (choices.get(i).equals(answer)){
+                    Toast.makeText(QuizActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+                    String answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
+                } else {
+                    Toast.makeText(QuizActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
+                    String answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
+                }
+            }
+        });
 
+
+    }
+    String loadQuestions(String correctAnswer, Random random, List<String> questionsKeys, List<String> displayChoices){
+        int questionIndex = random.nextInt(questionsKeys.size()); //get random index from questions keyset
+        displayChoices.clear();
         //pattern for finding correct answer
         Pattern aPat = Pattern.compile("[A-E]. .*\\*");
         Matcher Am;
@@ -118,16 +135,6 @@ public class QuizActivity extends AppCompatActivity {
 
         ArrayAdapter<String> choicesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, displayChoices);
         choicesList.setAdapter(choicesAdapter);
-        choicesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                if (choices.get(i).equals(answer)){
-                    Toast.makeText(QuizActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(QuizActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
+        return answer;
     }
 }
