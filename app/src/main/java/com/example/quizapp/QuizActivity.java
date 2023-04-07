@@ -2,6 +2,7 @@ package com.example.quizapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -31,6 +32,8 @@ public class QuizActivity extends AppCompatActivity {
     private ListView choicesList;
     private LinkedHashMap<String, List<String>> questions;
     private boolean next = false;
+    private String answer;//this is only for quiz function
+    private int questionIndex;
     List<String> choices;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +86,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private void startQuiz(){
         getQuestions();
-        int items,count=0, questionIndex;
+        int items,count=0;
         String question, userAnswer, correctAnswer = "a";
 
         List<String> questionsKeys = new ArrayList<>(questions.keySet()); //list of keys(questions)
@@ -94,24 +97,37 @@ public class QuizActivity extends AppCompatActivity {
         items = questionsKeys.size();
 
         //Display loop
-        String answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
+        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
         choicesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                //String answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
                 if (choices.get(i).equals(answer)){
                     Toast.makeText(QuizActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
-                    String answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
+                    questionsKeys.remove(questionIndex);
+                    if (questionsKeys.size() == 0){
+                        startActivity(new Intent(QuizActivity.this, MainPrompt.class));
+                    } else {
+                        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
+                    }
                 } else {
                     Toast.makeText(QuizActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
-                    String answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
+                    questionsKeys.remove(questionIndex);
+                    if (questionsKeys.size() == 0){
+                        startActivity(new Intent(QuizActivity.this, MainPrompt.class));
+                    } else {
+                        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
+                    }
                 }
+
             }
         });
 
 
+
     }
     String loadQuestions(String correctAnswer, Random random, List<String> questionsKeys, List<String> displayChoices){
-        int questionIndex = random.nextInt(questionsKeys.size()); //get random index from questions keyset
+        questionIndex = random.nextInt(questionsKeys.size()); //get random index from questions keyset
         displayChoices.clear();
         //pattern for finding correct answer
         Pattern aPat = Pattern.compile("[A-E]. .*\\*");
@@ -123,7 +139,7 @@ public class QuizActivity extends AppCompatActivity {
                 correctAnswer = a;
             }
         }
-        final String answer = correctAnswer;
+        String answer = correctAnswer;
         //**** show questions and choices ****
         tvQuestion.setText(questionsKeys.get(questionIndex).replaceAll("\\d{1,3}[.]\\s",""));
         //iterate the choices arraylist, remove the last character, add to new arraylist. this is only for display purposes.

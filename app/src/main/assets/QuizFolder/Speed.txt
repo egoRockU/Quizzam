@@ -1,0 +1,17 @@
+1. What is RegEx?
+A. Regrets-
+B. Regarasauros-
+C. Regular Expressions*
+D. Regular Exceptions-
+---
+2. What is 'int' data type?
+A. Integral-
+B. Inheritance-
+C. Ilocano-
+D. Integer*
+---
+3. What is 'str' data type?
+A. String*
+B. Strong-
+C. Streng-
+---
