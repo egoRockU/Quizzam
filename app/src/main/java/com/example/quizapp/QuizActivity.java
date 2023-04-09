@@ -28,19 +28,20 @@ import java.util.regex.Pattern;
 
 public class QuizActivity extends AppCompatActivity {
 
-    private TextView tvQuestion;
+    private TextView tvQuestion, tvItems;
     private ListView choicesList;
     private LinkedHashMap<String, List<String>> questions;
-    private boolean next = false;
     private String answer;//this is only for quiz function
     private int questionIndex;
     List<String> choices;
+    public static int count, items, score;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
         tvQuestion = findViewById(R.id.tvQuestion);
+        tvItems = findViewById(R.id.tvItems);
         choicesList = findViewById(R.id.choicesList);
         startQuiz();
     }
@@ -86,37 +87,42 @@ public class QuizActivity extends AppCompatActivity {
 
     private void startQuiz(){
         getQuestions();
-        int items,count=0;
-        String question, userAnswer, correctAnswer = "a";
+        String correctAnswer = "a";
 
         List<String> questionsKeys = new ArrayList<>(questions.keySet()); //list of keys(questions)
         choices = new ArrayList<>(); //clear out choices because it has value from getQuestions
         List<String> displayChoices = new ArrayList<>();
         Random random = new Random();
 
+        count = 1;
         items = questionsKeys.size();
-
+        score = 0;
         //Display loop
-        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
+        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, count, items);
         choicesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //String answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
                 if (choices.get(i).equals(answer)){
                     Toast.makeText(QuizActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+                    score += 1;
+                    count += 1;
                     questionsKeys.remove(questionIndex);
                     if (questionsKeys.size() == 0){
-                        startActivity(new Intent(QuizActivity.this, MainPrompt.class));
+                        finish();
+                        startActivity(new Intent(QuizActivity.this, Result.class));
                     } else {
-                        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
+                        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, count, items);
                     }
                 } else {
                     Toast.makeText(QuizActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
+                    count += 1;
                     questionsKeys.remove(questionIndex);
                     if (questionsKeys.size() == 0){
-                        startActivity(new Intent(QuizActivity.this, MainPrompt.class));
+                        finish();
+                        startActivity(new Intent(QuizActivity.this, Result.class));
                     } else {
-                        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
+                        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, count, items);
                     }
                 }
 
@@ -126,7 +132,7 @@ public class QuizActivity extends AppCompatActivity {
 
 
     }
-    String loadQuestions(String correctAnswer, Random random, List<String> questionsKeys, List<String> displayChoices){
+    String loadQuestions(String correctAnswer, Random random, List<String> questionsKeys, List<String> displayChoices, int count, int items){
         questionIndex = random.nextInt(questionsKeys.size()); //get random index from questions keyset
         displayChoices.clear();
         //pattern for finding correct answer
@@ -148,7 +154,7 @@ public class QuizActivity extends AppCompatActivity {
             c = c.replaceAll(".$","");
             displayChoices.add(c);
         }
-
+        tvItems.setText(count + " of " + items);
         ArrayAdapter<String> choicesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, displayChoices);
         choicesList.setAdapter(choicesAdapter);
         return answer;
