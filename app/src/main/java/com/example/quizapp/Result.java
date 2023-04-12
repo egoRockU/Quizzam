@@ -37,6 +37,7 @@ public class Result extends AppCompatActivity {
         tvSubject.setText("UCC Admission Test (" + ChooseQuizToStartPrompt.chosenTopic + ")");
         tvScore.setText((int)score + " pt");
 
+
     }
 
     public void RetakeQuiz(View view){

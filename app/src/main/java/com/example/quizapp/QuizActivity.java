@@ -185,9 +185,9 @@ public class QuizActivity extends AppCompatActivity {
                 counter[0]++;
                 pgTimeLeft.setProgress(timeLeft);
                 questionsKeys.remove(questionIndex);
+                cancel();
                 if (questionsKeys.size() != 0){
                     answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, counter[0], items);
-                    cancel();
                     startTimer(correctAnswer, random, questionsKeys, displayChoices, counter[0], items);
                 } else {
                     finish();
@@ -197,4 +197,11 @@ public class QuizActivity extends AppCompatActivity {
         }.start();
     }
 
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        countDownTimer.cancel();
+        finish();
+    }
 }
