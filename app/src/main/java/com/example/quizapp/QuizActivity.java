@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,11 +32,14 @@ public class QuizActivity extends AppCompatActivity {
 
     private TextView tvQuestion, tvItems;
     private ListView choicesList;
+    private ProgressBar pgTimeLeft;
     private LinkedHashMap<String, List<String>> questions;
     private String answer;//this is only for quiz function
     private int questionIndex;
     List<String> choices;
-    public static int count, items, score;
+    public static int count, items, score, timeLeft;
+    private static CountDownTimer countDownTimer;
+    private static boolean timeRanOut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +48,7 @@ public class QuizActivity extends AppCompatActivity {
         tvQuestion = findViewById(R.id.tvQuestion);
         tvItems = findViewById(R.id.tvItems);
         choicesList = findViewById(R.id.choicesList);
+        pgTimeLeft = findViewById(R.id.pgTimeLeft);
         startQuiz();
     }
 
@@ -99,6 +105,7 @@ public class QuizActivity extends AppCompatActivity {
         score = 0;
         //Display loop
         answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, count, items);
+        startTimer(correctAnswer, random, questionsKeys, displayChoices, count, items);
         choicesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -107,22 +114,26 @@ public class QuizActivity extends AppCompatActivity {
                     Toast.makeText(QuizActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
                     score += 1;
                     count += 1;
+                    countDownTimer.cancel();
                     questionsKeys.remove(questionIndex);
-                    if (questionsKeys.size() == 0){
+                    if (questionsKeys.size() != 0){
+                        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, count, items);
+                        startTimer(correctAnswer, random, questionsKeys, displayChoices, count, items);
+                    } else {
                         finish();
                         startActivity(new Intent(QuizActivity.this, Result.class));
-                    } else {
-                        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, count, items);
                     }
                 } else {
                     Toast.makeText(QuizActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
                     count += 1;
                     questionsKeys.remove(questionIndex);
-                    if (questionsKeys.size() == 0){
+                    countDownTimer.cancel();
+                    if (questionsKeys.size() != 0){
+                        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, count, items);
+                        startTimer(correctAnswer, random, questionsKeys, displayChoices, count, items);
+                    } else {
                         finish();
                         startActivity(new Intent(QuizActivity.this, Result.class));
-                    } else {
-                        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, count, items);
                     }
                 }
 
@@ -159,4 +170,31 @@ public class QuizActivity extends AppCompatActivity {
         choicesList.setAdapter(choicesAdapter);
         return answer;
     }
+
+
+    private void startTimer(String correctAnswer, Random random, List<String> questionsKeys, List<String> displayChoices, int count, int items){
+        final int[] counter = {count};
+        timeLeft = 14;
+        countDownTimer = new CountDownTimer(15000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                pgTimeLeft.setProgress(timeLeft);
+                timeLeft--;
+                System.out.println(millisUntilFinished/1000);
+            }
+            public void onFinish() {
+                counter[0]++;
+                pgTimeLeft.setProgress(timeLeft);
+                questionsKeys.remove(questionIndex);
+                if (questionsKeys.size() != 0){
+                    answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, counter[0], items);
+                    cancel();
+                    startTimer(correctAnswer, random, questionsKeys, displayChoices, counter[0], items);
+                } else {
+                    finish();
+                    startActivity(new Intent(QuizActivity.this, Result.class));
+                }
+            }
+        }.start();
+    }
+
 }
