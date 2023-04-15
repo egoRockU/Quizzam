@@ -11,8 +11,9 @@ import android.widget.TextView;
 
 public class Result extends AppCompatActivity {
 
-    TextView tvCongratulatoryMsg, tvScore, tvSubject;
+    TextView tvCongratulatoryMsg, tvScore, tvSubject, tvTimeTaken;
     float score, rating;
+    long timeInMillis, timeSec, timeMin, timeHour;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,10 +21,10 @@ public class Result extends AppCompatActivity {
         tvScore = findViewById(R.id.tvScore);
         tvSubject = findViewById(R.id.tvSubject);
         tvCongratulatoryMsg = findViewById(R.id.tvConratulatoryMsg);
+        tvTimeTaken = findViewById(R.id.tvTimeTaken);
         score = QuizActivity.score;
 
         rating = (score/QuizActivity.items) * 100;
-        System.out.println("Rating: "+rating);
         if (rating >= 90){
             tvCongratulatoryMsg.setText("Certified UCC Passer!");
         } else if (rating >= 75){
@@ -34,8 +35,15 @@ public class Result extends AppCompatActivity {
             tvCongratulatoryMsg.setText("You can do it next time!");
         }
 
+        timeInMillis = QuizActivity.runningTime;
+        timeSec = timeInMillis/1000;
+        timeMin = timeSec/60;
+        timeHour = timeMin/60;
+
+
         tvSubject.setText("UCC Admission Test (" + ChooseQuizToStartPrompt.chosenTopic + ")");
         tvScore.setText((int)score + " pt");
+        tvTimeTaken.setText(String.format("%02d:%02d:%02d", timeHour%60,timeMin%60, timeSec%60));
 
 
     }
