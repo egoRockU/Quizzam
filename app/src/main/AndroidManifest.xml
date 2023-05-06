@@ -21,9 +21,6 @@
             android:name=".ChooseQuizToStartPrompt"
             android:exported="false" />
         <activity
-            android:name=".MainPrompt"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -53,6 +53,6 @@ public class Result extends AppCompatActivity {
     }
 
     public void Dashboard(View view){
-        startActivity(new Intent(Result.this, MainPrompt.class));
+        startActivity(new Intent(Result.this, ChooseQuizToStartPrompt.class));
     }
 }

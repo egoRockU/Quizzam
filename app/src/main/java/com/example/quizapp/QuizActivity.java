@@ -47,8 +47,6 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-
-
         tvQuestion = findViewById(R.id.tvQuestion);
         tvItems = findViewById(R.id.tvItems);
         choicesList = findViewById(R.id.choicesList);
@@ -108,13 +106,13 @@ public class QuizActivity extends AppCompatActivity {
         List<String> displayChoices = new ArrayList<>();
         Random random = new Random();
 
-        count = 1;
+        count = 0;
         items = questionsKeys.size();
         score = 0;
 
         //Display loop
-        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, count, items);
-        startQuizTimer(correctAnswer, random, questionsKeys, displayChoices, count, items);
+        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, items);
+        startQuizTimer(correctAnswer, random, questionsKeys, displayChoices, items);
         choicesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -122,32 +120,22 @@ public class QuizActivity extends AppCompatActivity {
                 if (choices.get(i).equals(answer)){
                     Toast.makeText(QuizActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
                     score += 1;
-                    count += 1;
                     countDownTimer.cancel();
                     questionsKeys.remove(questionIndex);
-                    if (questionsKeys.size() != 0){
-                        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, count, items);
-                        startQuizTimer(correctAnswer, random, questionsKeys, displayChoices, count, items);
-                    } else {
-                        finish();
-                        endTime = System.currentTimeMillis();
-                        runningTime = endTime - startTime;
-                        startActivity(new Intent(QuizActivity.this, Result.class));
-                    }
                 } else {
                     Toast.makeText(QuizActivity.this, "Wrong!", Toast.LENGTH_SHORT).show();
-                    count += 1;
                     questionsKeys.remove(questionIndex);
                     countDownTimer.cancel();
-                    if (questionsKeys.size() != 0){
-                        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, count, items);
-                        startQuizTimer(correctAnswer, random, questionsKeys, displayChoices, count, items);
-                    } else {
-                        finish();
-                        endTime = System.currentTimeMillis();
-                        runningTime = endTime - startTime;
-                        startActivity(new Intent(QuizActivity.this, Result.class));
-                    }
+                }
+
+                if (questionsKeys.size() != 0){
+                    answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, items);
+                    startQuizTimer(correctAnswer, random, questionsKeys, displayChoices, items);
+                } else {
+                    finish();
+                    endTime = System.currentTimeMillis();
+                    runningTime = endTime - startTime;
+                    startActivity(new Intent(QuizActivity.this, Result.class));
                 }
 
             }
@@ -156,7 +144,9 @@ public class QuizActivity extends AppCompatActivity {
 
 
     }
-    String loadQuestions(String correctAnswer, Random random, List<String> questionsKeys, List<String> displayChoices, int count, int items){
+    private String loadQuestions(String correctAnswer, Random random, List<String> questionsKeys, List<String> displayChoices, int items){
+        count++;
+        System.out.println("count: " + count);
         questionIndex = random.nextInt(questionsKeys.size()); //get random index from questions keyset
         displayChoices.clear();
         //pattern for finding correct answer
@@ -185,23 +175,21 @@ public class QuizActivity extends AppCompatActivity {
     }
 
 
-    private void startQuizTimer(String correctAnswer, Random random, List<String> questionsKeys, List<String> displayChoices, int count, int items){
-        final int[] counter = {count};
-        timeLeft = 15;
+    private void startQuizTimer(String correctAnswer, Random random, List<String> questionsKeys, List<String> displayChoices, int items){
+        timeLeft = 14;
         countDownTimer = new CountDownTimer(15000, 1000) {
             public void onTick(long millisUntilFinished) {
                 pgTimeLeft.setProgress(timeLeft);
                 timeLeft--;
             }
             public void onFinish() {
-                counter[0]++;
                 timeLeft--;
                 pgTimeLeft.setProgress(timeLeft);
                 questionsKeys.remove(questionIndex);
                 cancel();
                 if (questionsKeys.size() != 0){
-                    answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, counter[0], items);
-                    startQuizTimer(correctAnswer, random, questionsKeys, displayChoices, counter[0], items);
+                    answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, items);
+                    startQuizTimer(correctAnswer, random, questionsKeys, displayChoices, items);
                 } else {
                     finish();
                     endTime = System.currentTimeMillis();
