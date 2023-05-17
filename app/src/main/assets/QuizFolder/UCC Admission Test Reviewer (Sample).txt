@@ -1,0 +1,17 @@
+1. Certain substances are classifed as water pollutants, others as air pollutans and still others as land pollutans. Which of the following polutes al three parts of the enviroment?
+A. Fluorocarbons-
+B. Smog-
+C. Acid rain*
+D. Ozone-
+---
+2. What is 'int' data type?
+A. Integral-
+B. Inheritance-
+C. Ilocano-
+D. Integer*
+---
+3. What is 'str' data type?
+A. String*
+B. Strong-
+C. Streng-
+---

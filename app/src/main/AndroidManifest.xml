@@ -15,10 +15,10 @@
             android:name=".Result"
             android:exported="false" />
         <activity
-            android:name=".QuizActivity"
+            android:name=".Quiz_Questions"
             android:exported="false" />
         <activity
-            android:name=".ChooseQuizToStartPrompt"
+            android:name=".QuizNameMain"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

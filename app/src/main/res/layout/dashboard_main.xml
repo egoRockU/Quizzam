@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dashboard"
+    tools:context=".QuizNameMain">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quizzam!"
+        android:fontFamily="@font/of_bold"
+        android:textColor="#Ffffff"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="35dp"/>
+
+    <!-- Circles with High Score -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+            <ImageView
+                android:layout_marginTop="70dp"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/dashboard_circle"
+                android:layout_marginBottom="3dp"/>
+            <ImageView
+                android:layout_marginTop="80dp"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:src="@drawable/dashboard_circle2"
+                android:layout_marginBottom="3dp"/>
+
+        <!-- Number nung High Score, lagyan mo na lang id -->
+            <TextView
+                android:layout_width="110dp"
+                android:layout_marginTop="90dp"
+                android:layout_marginLeft="150dp"
+                android:layout_height="110dp"
+                android:text="00"
+                android:textColor="#FA7E05"
+                android:fontFamily="@font/of_sembold"
+                android:textSize="70sp"
+                android:paddingTop="15dp"
+                android:gravity="center"
+                android:background="@drawable/dashboard_circle3"/>
+
+        <!-- High Score -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="High Score"
+                android:layout_marginTop="105dp"
+                android:layout_marginLeft="170dp"
+                android:textColor="#FA7E05"
+                android:fontFamily="@font/of_light"/>
+    </RelativeLayout>
+
+
+    <!-- Completed and Perfect Quiz -->
+    <RelativeLayout
+        android:layout_marginTop="220dp"
+        android:layout_marginBottom="370dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Quiz Completed, Lagyan mo id-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="00"
+            android:gravity="center"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/white"
+            android:paddingBottom="20dp"
+            android:textSize="45sp"
+            android:layout_marginRight="205dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Quiz Completed"
+            android:gravity="center"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/white"
+            android:paddingTop="50dp"
+            android:layout_marginRight="205dp"
+            />
+
+        <ImageView
+            android:layout_width="4dp"
+            android:layout_marginTop="30dp"
+            android:layout_height="90dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/white"/>
+
+        <!-- Perfect Quiz, lagyan mo id -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="00"
+            android:gravity="center"
+            android:paddingBottom="20dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/white"
+            android:textSize="45sp"
+            android:layout_marginLeft="205dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Perfect Quiz"
+            android:gravity="center"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="@color/white"
+            android:paddingTop="50dp"
+            android:layout_marginLeft="205dp"
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Come on and be productive"
+        android:textSize="12sp"
+        android:textColor="#FB7F05"
+        android:fontFamily="@font/of_light"
+        android:layout_marginTop="390dp"
+        android:layout_marginLeft="30dp"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let's Play!"
+        android:textSize="45sp"
+        android:textColor="#FB7F05"
+        android:layout_marginTop="400dp"
+        android:fontFamily="@font/of_bold"
+        android:layout_marginLeft="30dp"/>
+
+    <ListView
+        android:id="@+id/quizList"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="460dp">
+    </ListView>
+</RelativeLayout>

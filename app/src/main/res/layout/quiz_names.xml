@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent" >
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/quiz_names_shape"
+                android:alpha=".3"
+                app:tint="#AB000000" />
+             <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/quiz_names_shape"
+                android:layout_marginBottom="3dp"/>
+        </RelativeLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent" >
+            <TextView
+                android:id="@+id/txtviewQuizItem"
+                android:text="100 items"
+                android:textSize="13sp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="100dp"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/txtviewQuizSubject"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:text="UCC Admission Test Reviewer (Science)"
+                android:textSize="20sp"
+                android:gravity="bottom"
+                android:layout_marginRight="100dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/white"
+                android:paddingBottom="7dp"
+                android:fontFamily="@font/of_med" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

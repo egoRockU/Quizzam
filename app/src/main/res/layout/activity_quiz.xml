@@ -1,57 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Quiz">
+    android:background="@drawable/last"
+    tools:context=".Quiz_Name_Constructor">
 
     <TextView
-        android:id="@+id/tvQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Question"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.261" />
+        android:text="Quizzam!"
+        android:fontFamily="@font/of_bold"
+        android:textColor="#Ffffff"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="35dp"/>
+
+    <TextView
+        android:id="@+id/tvSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/of_light"
+        android:text="UCC Admission Test Reviewer (subject)"
+        android:textColor="#FB7F05"
+        android:layout_marginTop="70dp"
+        android:textSize="12sp"
+        android:layout_marginLeft="30dp"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let's Go!"
+        android:textSize="45sp"
+        android:textColor="#FB7F05"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/of_bold"
+        android:layout_marginLeft="30dp"/>
+
+    <RelativeLayout
+        android:layout_marginTop="220dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/quiz_names_shape"
+                android:alpha="0.2"
+                app:tint="#8A000000" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:padding="5dp"
+                android:fontFamily="@font/of_med"
+                android:text="Question"
+                android:textColor="@color/white"
+                android:background="@drawable/quiz_names_shape"/>
+        </RelativeLayout>
+    </RelativeLayout>
 
     <ListView
         android:id="@+id/choicesList"
-        android:layout_width="408dp"
-        android:layout_height="329dp"
-        android:layout_marginTop="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvQuestion"
-        app:layout_constraintVertical_bias="0.211" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:layout_marginBottom="80dp"
+        android:layout_marginTop="390dp"
+        />
 
     <TextView
         android:id="@+id/tvItems"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="_ of _"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.91" />
+        android:layout_marginTop="650dp"
+        android:fontFamily="@font/of_light"
+        android:textStyle="italic"
+        android:layout_centerHorizontal="true" />
 
     <ProgressBar
         android:id="@+id/pgTimeLeft"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="188dp"
-        android:layout_height="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:max="14"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:visibility="gone"
+        android:layout_marginTop="160dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:progressDrawable="@drawable/progressbar_design"/>
+</RelativeLayout>

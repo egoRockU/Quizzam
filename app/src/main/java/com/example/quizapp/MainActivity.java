@@ -15,6 +15,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Start(View view){
-        startActivity(new Intent(MainActivity.this, ChooseQuizToStartPrompt.class));
+        startActivity(new Intent(MainActivity.this, QuizNameMain.class));
     }
 }
