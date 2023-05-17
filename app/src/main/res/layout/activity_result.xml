@@ -15,7 +15,7 @@
         android:textColor="#Ffffff"
         android:textSize="18sp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="35dp"/>
+        android:layout_marginLeft="300dp"/>
 
     <TextView
         android:id="@+id/tvConratulatoryMsg"
