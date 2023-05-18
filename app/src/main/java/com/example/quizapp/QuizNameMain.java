@@ -123,6 +123,14 @@ public class QuizNameMain extends AppCompatActivity implements NavigationView.On
                 Intent intent = new Intent(QuizNameMain.this, Settings.class);
                 startActivity(intent);
                 break;
+            case R.id.drawerAboutUs:
+                Intent intent1 = new Intent(QuizNameMain.this, About_Us.class);
+                startActivity(intent1);
+                break;
+            case R.id.drawerOverview:
+                Intent intent2 = new Intent(QuizNameMain.this, Overview.class);
+                startActivity(intent2);
+                break;
             default:
                 System.out.println("no one matches");
                 break;
@@ -208,26 +216,5 @@ public class QuizNameMain extends AppCompatActivity implements NavigationView.On
 
     }
 
-    //unused function
-    private void getQuizzes(){
-
-        try {
-            Questions.clear(); //need to be cleared so that when called again, it won't iterate
-            AssetManager assetManager = getAssets();
-            InputStream inputStream = assetManager.open("QuizFolder/-QUIZZES.txt");
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            String line;
-            while ((line = reader.readLine()) != null ){
-                line = line.replaceAll(".txt", ""); //Remove .txt so it wont appear in listview
-               // Questions.add(line);
-            }
-            reader.close();
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
 }

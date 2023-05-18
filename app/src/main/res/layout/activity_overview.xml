@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/aboutus"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/last"
+    android:fillViewport="true"
+    tools:context=".About_Us">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/of_light"
+            android:text="Quizzam!"
+            android:textColor="#FB7F05"
+            android:textSize="12sp"
+            android:layout_marginTop="70dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/of_bold"
+            android:text="Overview"
+            android:textColor="#FB7F05"
+            android:textSize="45sp" />
+
+        <!--What is Quizzam?-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="170dp"
+            android:fontFamily="@font/of_med"
+            android:text="What is Quizzam!?"
+            android:textColor="#FA7E05"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="210dp"
+            android:layout_marginEnd="50dp"
+            android:fontFamily="@font/of_light"
+            android:justificationMode="inter_word"
+            android:text="Quizzam! is a mobile application software that enables users to quiz themselves on numerous
+subjects to evaluate their knowledge and assess their level of understanding. This program was made to
+give users an interactive and fun learning experience. It may cover a wide range of topics, from
+academics to trivia. With the application, users can track their progress and respond to multiple-choice
+questions. This software is perfect for users who want to learn while they are on the road and may give
+them an enjoyable and handy way to brush up on their knowledge or study for tests."
+            android:textColor="#FA7E05"
+            android:textSize="16sp" />
+
+
+        <!--What are Quizzam!'s Features?-->
+       <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="530dp"
+            android:padding="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="#FED8B3">
+           <!--Features-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:fontFamily="@font/of_med"
+                android:text="Quizzam!'s Features?"
+                android:textColor="#FA7E05"
+                android:textSize="20sp" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:fontFamily="@font/of_light"
+                    android:text="• Different Subject"
+                    android:textColor="#FA7E05"
+                    android:paddingStart="15dp"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:fontFamily="@font/of_light"
+                    android:text="• Time Limit"
+                    android:textColor="#FA7E05"
+                    android:paddingStart="170dp"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/of_light"
+                    android:text="• Progress Tracker"
+                    android:textColor="#FA7E05"
+                    android:paddingStart="15dp"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/of_light"
+                    android:text="• User's Rating"
+                    android:textColor="#FA7E05"
+                    android:paddingStart="170dp"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="50dp"
+                    android:fontFamily="@font/of_light"
+                    android:text="• Randomize Questions"
+                    android:textColor="#FA7E05"
+                    android:paddingStart="15dp"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+           <!--Technologies-->
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="50dp"
+               android:fontFamily="@font/of_med"
+               android:text="Technologies Used?"
+               android:textColor="#FA7E05"
+               android:layout_marginTop="140dp"
+               android:textSize="20sp" />
+           <RelativeLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="180dp">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="50dp"
+                   android:fontFamily="@font/of_light"
+                   android:text="• SQLite Database"
+                   android:textColor="#FA7E05"
+                   android:paddingStart="15dp"
+                   android:textSize="16sp" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="50dp"
+                   android:fontFamily="@font/of_light"
+                   android:text="• Firebase Storage"
+                   android:textColor="#FA7E05"
+                   android:paddingStart="170dp"
+                   android:textSize="16sp" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="50dp"
+                   android:layout_marginTop="25dp"
+                   android:fontFamily="@font/of_light"
+                   android:text="• Android Studio"
+                   android:textColor="#FA7E05"
+                   android:paddingStart="15dp"
+                   android:textSize="16sp" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="50dp"
+                   android:layout_marginTop="25dp"
+                   android:fontFamily="@font/of_light"
+                   android:text="• Figma"
+                   android:textColor="#FA7E05"
+                   android:paddingStart="170dp"
+                   android:textSize="16sp"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="50dp"
+                   android:layout_marginTop="50dp"
+                   android:fontFamily="@font/of_light"
+                   android:text="• Git / GitHub"
+                   android:textColor="#FA7E05"
+                   android:paddingStart="15dp"
+                   android:textSize="16sp" />
+           </RelativeLayout>
+
+        </RelativeLayout>
+
+        <!--Kulay Pallete-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="800dp"
+            android:padding="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="#FA7E05">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:fontFamily="@font/of_med"
+                android:text="Quizzam!'s Color Pallete"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <!--Kulays-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_centerHorizontal="true"
+               >
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/palleteorange"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/palletesemiorange"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/palletewhiteorange"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/palletegreen"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/palletewhite"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+
+            </LinearLayout>
+            <!--Kulays Name-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#FB7F05"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#FAA24B"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#FDE6CD"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#005246"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#FFFFFF"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</ScrollView>

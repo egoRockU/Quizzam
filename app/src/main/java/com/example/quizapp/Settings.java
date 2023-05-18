@@ -11,6 +11,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class Settings extends AppCompatActivity {
 
 
@@ -85,7 +87,7 @@ public class Settings extends AppCompatActivity {
             public void onClick(View v) {
                 resetData();
                 QuizNameMain.getData(Settings.this);
-                Toast.makeText(Settings.this, "All your progress is now gone.", Toast.LENGTH_SHORT).show();
+                StyleableToast.makeText(Settings.this, "All your progress is now gone.", Toast.LENGTH_SHORT, R.style.ToastResetProgress).show();
             }
         });
 

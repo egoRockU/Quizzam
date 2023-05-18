@@ -7,8 +7,14 @@
             android:title="Settings" />
 
         <item
+            android:id="@+id/drawerOverview"
+            android:icon="@drawable/baseline_description_24"
+            android:title="Overview" />
+
+        <item
             android:id="@+id/drawerAboutUs"
             android:icon="@drawable/baseline_groups_24"
             android:title="About Us" />
+
     
 </menu>

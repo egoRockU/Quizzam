@@ -32,12 +32,13 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
-                android:theme="@style/Theme.AppCompat.DayNight"
+                android:theme="@style/ToolbarColoredBackArrow"
+                app:popupTheme="@style/Theme.AppCompat.DayNight.NoActionBar"
                 android:layout_height="wrap_content"
                 android:id="@+id/toolbar"
                 android:background="#FA7E05"
-                app:navigationIcon="@drawable/baseline_menu_24"
-                android:paddingLeft="20dp"
+                app:navigationIcon="@drawable/menu"
+                android:paddingStart="20dp"
                 android:paddingTop="2dp"
                 />
 

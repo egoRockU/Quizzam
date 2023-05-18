@@ -36,6 +36,8 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class Quiz_Questions extends AppCompatActivity {
 
     private TextView tvQuestion, tvItems;
@@ -70,7 +72,7 @@ public class Quiz_Questions extends AppCompatActivity {
         startTime = System.currentTimeMillis();
         startQuiz();
 
-        tvSubject.setText("UCC Admission Test (" + QuizNameMain.subjectName + ")");
+        tvSubject.setText(QuizNameMain.subjectName);
 
     }
     //GET QUESTIONS
@@ -143,12 +145,12 @@ public class Quiz_Questions extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         //String answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
                         if (choices.get(i).equals(answer)){
-                            Toast.makeText(Quiz_Questions.this, "Correct!", Toast.LENGTH_SHORT).show();
+                            StyleableToast.makeText(Quiz_Questions.this, "Correct!", Toast.LENGTH_SHORT, R.style.ToastCorrect).show();
                             score += 1;
                             countDownTimer.cancel();
                             questionsKeys.remove(questionIndex);
                         } else {
-                            Toast.makeText(Quiz_Questions.this, "Wrong!", Toast.LENGTH_SHORT).show();
+                            StyleableToast.makeText(Quiz_Questions.this, "Wrong!", Toast.LENGTH_SHORT, R.style.ToastWrong).show();
                             questionsKeys.remove(questionIndex);
                             countDownTimer.cancel();
                         }

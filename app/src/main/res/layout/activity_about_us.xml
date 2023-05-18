@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/aboutus"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/last"
+    android:fillViewport="true"
+    tools:context=".About_Us">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/of_light"
+            android:text="Quizzam!"
+            android:textColor="#FB7F05"
+            android:textSize="12sp"
+            android:layout_marginTop="70dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/of_bold"
+            android:text="About us"
+            android:textColor="#FB7F05"
+            android:textSize="45sp" />
+
+        <!--Mission-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="170dp"
+            android:fontFamily="@font/of_med"
+            android:text="Mission"
+            android:textColor="#FA7E05"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="210dp"
+            android:layout_marginEnd="50dp"
+            android:fontFamily="@font/of_light"
+            android:justificationMode="inter_word"
+            android:text="Our quiz application's mission is to provide an engaging platform that promotes learning, knowledge sharing, and entertainment through quizzes."
+            android:textColor="#FA7E05"
+            android:textSize="16sp" />
+
+        <!--Vision-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="315dp"
+            android:fontFamily="@font/of_med"
+            android:text="Vision"
+            android:textColor="#FA7E05"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="355dp"
+            android:layout_marginEnd="50dp"
+            android:fontFamily="@font/of_light"
+            android:justificationMode="inter_word"
+            android:text="Our vision is to become the go-to destination for students, offering diverse quiz categories and fostering a vibrant community. We are committed to delivering informative quizzes that stimulate curiosity and enhance learning outcomes. Join us on this exciting journey of learning and fun."
+            android:textColor="#FA7E05"
+            android:textSize="16sp" />
+
+        <!--Meet the Team -->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="530dp"
+            android:background="#FED8B3"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/of_sembold"
+                android:gravity="center"
+                android:text="MEET THE TEAM!"
+                android:textColor="#FA7E05"
+                android:textSize="25sp" />
+
+        </RelativeLayout>
+
+        <!--The Team -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="605dp"
+            android:background="#FA7E05">
+
+            <!--Quizzam -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ucclogo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="7dp"
+                    android:fontFamily="@font/of_bold"
+                    android:text="Quizzam!"
+                    android:textColor="#FFFFFF"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="50dp"
+                    android:fontFamily="@font/of_light"
+                    android:text="UCCAT Reviewer"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <!--Gerwin -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/of_med"
+                    android:gravity="center"
+                    android:text="Gerwin Lagutan"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/of_light"
+                    android:gravity="center"
+                    android:text="Lead Project Developer and Back-End Developer"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
+            </RelativeLayout>
+
+            <!--Jhude-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="160dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/of_med"
+                    android:gravity="center"
+                    android:text="Jhude Vergara"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/of_light"
+                    android:gravity="center"
+                    android:text="Lead Creative Director and Front-End Developer"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
+            </RelativeLayout>
+
+            <!--Itliong-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="220dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/of_med"
+                    android:gravity="center"
+                    android:text="John Lloyd Itliong"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/of_light"
+                    android:gravity="center"
+                    android:text="Quality Assurance and Content Management"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
+            </RelativeLayout>
+
+            <!--Joven-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="280dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/of_med"
+                    android:gravity="center"
+                    android:text="John Joven Borromeo"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/of_light"
+                    android:gravity="center"
+                    android:text="Support and Content Management"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
+            </RelativeLayout>
+
+            <!--copyright-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="360dp"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/of_light"
+                    android:gravity="center"
+                    android:text="Copyright @2023"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="italic" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

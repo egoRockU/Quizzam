@@ -37,6 +37,7 @@ public class Result extends AppCompatActivity {
 
         rating = (score/ Quiz_Questions.items) * 100;
         if (rating >= 90){
+            tvCongratulatoryMsg.setTextSize(40);
             tvCongratulatoryMsg.setText("Certified UCC Passer!");
         } else if (rating >= 75){
             tvCongratulatoryMsg.setText("Great Job Idol!");
@@ -52,7 +53,7 @@ public class Result extends AppCompatActivity {
         timeHour = timeMin/60;
 
 
-        tvSubject.setText("UCC Admission Test (" + QuizNameMain.chosenTopic + ")");
+        tvSubject.setText(QuizNameMain.subjectName);
         tvScore.setText((int)score + " pt");
         tvTimeTaken.setText(String.format("%02d:%02d", timeMin, timeSec%60));
 

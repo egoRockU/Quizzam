@@ -40,7 +40,7 @@
         android:layout_marginLeft="30dp"/>
 
     <RelativeLayout
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="205dp"
         android:layout_height="150dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
@@ -85,8 +85,8 @@
         android:layout_height="wrap_content"
         android:divider="@null"
         android:dividerHeight="0dp"
-        android:layout_marginBottom="80dp"
-        android:layout_marginTop="390dp"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="370dp"
         />
 
     <TextView
@@ -94,9 +94,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="_ of _"
-        android:layout_marginTop="650dp"
+        android:layout_marginTop="630dp"
         android:fontFamily="@font/of_light"
         android:textStyle="italic"
+        android:textColor="@color/black"
+        android:alpha=".5"
         android:layout_centerHorizontal="true" />
 
     <ProgressBar

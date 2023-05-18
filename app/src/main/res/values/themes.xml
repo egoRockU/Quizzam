@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <!-- Base application theme. -->
     <style name="Theme.QuizApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowFullscreen">true</item>
@@ -14,5 +15,35 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="21">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+    <style name="ToolbarColoredBackArrow" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+    <style name="ToastCorrect">
+        <item name="stTextColor">#fff</item>
+        <item name="stRadius">50dp</item>
+        <item name="stTextSize">14sp</item>
+        <item name="stTextBold">true</item>
+        <item name="stColorBackground">#FA7E05</item>
+        <item name="stSolidBackground">false</item>
+        <item name="stIconStart">@drawable/toastcheck</item>
+    </style>
+    <style name="ToastWrong">
+        <item name="stTextColor">#fff</item>
+        <item name="stRadius">50dp</item>
+        <item name="stTextSize">14sp</item>
+        <item name="stTextBold">true</item>
+        <item name="stColorBackground">#FA7E05</item>
+        <item name="stSolidBackground">false</item>
+        <item name="stIconStart">@drawable/toasterror</item>
+    </style>
+    <style name="ToastResetProgress">
+        <item name="stTextColor">#fff</item>
+        <item name="stRadius">50dp</item>
+        <item name="stTextSize">14sp</item>
+        <item name="stTextBold">true</item>
+        <item name="stColorBackground">#FA7E05</item>
+        <item name="stSolidBackground">false</item>
+        <item name="stIconStart">@drawable/baseline_restart_alt_24</item>
     </style>
 </resources>
