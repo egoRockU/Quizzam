@@ -3,24 +3,37 @@ package com.example.quizapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 public class Result extends AppCompatActivity {
 
-    TextView tvCongratulatoryMsg, tvScore, tvSubject, tvTimeTaken;
-    float score, rating;
+    TextView tvCongratulatoryMsg, tvScore, tvSubject, tvTimeTaken, tvPerfectQuizValues;
+    float score, items, rating;
     long timeInMillis, timeSec, timeMin, timeHour;
+    boolean isQuizCompleted;
+
+    int highScore, quizCompleted, perfectQuiz;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+
         tvScore = findViewById(R.id.tvScore);
         tvSubject = findViewById(R.id.tvSubject);
         tvCongratulatoryMsg = findViewById(R.id.tvConratulatoryMsg);
         tvTimeTaken = findViewById(R.id.tvTimeTaken);
+        tvPerfectQuizValues = findViewById(R.id.tvPerfectQuizValues);
         score = Quiz_Questions.score;
+        items = Quiz_Questions.items;
+        isQuizCompleted = Quiz_Questions.hasBeenCompleted;
+
+        //userStats
+        updateStats();
+
 
         rating = (score/ Quiz_Questions.items) * 100;
         if (rating >= 90){
@@ -41,10 +54,31 @@ public class Result extends AppCompatActivity {
 
         tvSubject.setText("UCC Admission Test (" + QuizNameMain.chosenTopic + ")");
         tvScore.setText((int)score + " pt");
-        tvTimeTaken.setText(String.format("%02d:%02d:%02d", timeHour%60,timeMin%60, timeSec%60));
+        tvTimeTaken.setText(String.format("%02d:%02d", timeMin, timeSec%60));
 
 
     }
+
+    private void updateStats(){
+        highScore = QuizNameMain.HighScore;
+        quizCompleted = QuizNameMain.QuizCompleted;
+        perfectQuiz = QuizNameMain.PerfectQuiz;
+
+        if ((int)score>highScore){
+            highScore = (int)score;
+        }
+        if ((score/items) == 1){
+            perfectQuiz += 1;
+        }
+        if (isQuizCompleted){
+            quizCompleted += 1;
+        }
+
+        DatabaseHelper db = new DatabaseHelper(Result.this);
+        db.update("1", highScore, quizCompleted, perfectQuiz);
+        tvPerfectQuizValues.setText(String.valueOf(perfectQuiz));
+    }
+
 
     public void RetakeQuiz(View view){
         startActivity(new Intent(Result.this, Quiz_Questions.class));

@@ -1,12 +1,15 @@
 package com.example.quizapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,7 +18,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,10 +45,12 @@ public class Quiz_Questions extends AppCompatActivity {
     private String answer;//this is only for quiz function
     private int questionIndex;
     List<String> choices;
-    public static int count, items, score, timeLeft;
+    public static int count, items, score, timeSec, timeInMillis;
+    public static boolean hasBeenCompleted;
     private static CountDownTimer countDownTimer;
     private static long startTime, endTime;
     public static long runningTime;
+
     TextView tvSubject;
     public List<Quiz_Choices_Constructor> Choices;
     @SuppressLint("MissingInflatedId")
@@ -47,6 +58,8 @@ public class Quiz_Questions extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        hasBeenCompleted = false;
 
         tvSubject = findViewById(R.id.tvSubject);
         tvQuestion = findViewById(R.id.tvQuestion);
@@ -57,19 +70,16 @@ public class Quiz_Questions extends AppCompatActivity {
         startTime = System.currentTimeMillis();
         startQuiz();
 
-        tvSubject.setText("UCC Admission Test (" + QuizNameMain.chosenTopic + ")");
-
-        //Eto dinagdag ko, ewan lang kung tama
+        tvSubject.setText("UCC Admission Test (" + QuizNameMain.subjectName + ")");
 
     }
     //GET QUESTIONS
-    private void getQuestions() {
+    private void getQuestions(byte[] bytes) {
         String question = "";
         List<String> choices = new ArrayList<>();
         questions = new LinkedHashMap<>();
         try {
-            AssetManager assetManager = getAssets();
-            InputStream inputStream = assetManager.open("QuizFolder/"+ QuizNameMain.chosenTopic+".txt");
+            InputStream inputStream = new ByteArrayInputStream(bytes);
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String line;
             //creating pattern for matching
@@ -105,46 +115,63 @@ public class Quiz_Questions extends AppCompatActivity {
 
     //START QUIZ
     private void startQuiz(){
-        getQuestions();
-        String correctAnswer = "a";
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference fileRef = storage.getReference().child("QuizFolder/" + QuizNameMain.chosenTopic);
+        final long ONE_MEGABYTE = 1024*1024;
 
-        List<String> questionsKeys = new ArrayList<>(questions.keySet()); //list of keys(questions)
-        choices = new ArrayList<>(); //clear out choices because it has value from getQuestions
-        List<String> displayChoices = new ArrayList<>();
-        Random random = new Random();
-
-        count = 0;
-        items = questionsKeys.size();
-        score = 0;
-
-        //Display loop
-        answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, items);
-        startQuizTimer(correctAnswer, random, questionsKeys, displayChoices, items);
-        choicesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        fileRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //String answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
-                if (choices.get(i).equals(answer)){
-                    Toast.makeText(Quiz_Questions.this, "Correct!", Toast.LENGTH_SHORT).show();
-                    score += 1;
-                    countDownTimer.cancel();
-                    questionsKeys.remove(questionIndex);
-                } else {
-                    Toast.makeText(Quiz_Questions.this, "Wrong!", Toast.LENGTH_SHORT).show();
-                    questionsKeys.remove(questionIndex);
-                    countDownTimer.cancel();
-                }
+            public void onSuccess(byte[] bytes) {
+                getQuestions(bytes);
 
-                if (questionsKeys.size() != 0){
-                    answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, items);
-                    startQuizTimer(correctAnswer, random, questionsKeys, displayChoices, items);
-                } else {
-                    finish();
-                    endTime = System.currentTimeMillis();
-                    runningTime = endTime - startTime;
-                    startActivity(new Intent(Quiz_Questions.this, Result.class));
-                }
+                String correctAnswer = "a";
 
+                List<String> questionsKeys = new ArrayList<>(questions.keySet()); //list of keys(questions)
+                choices = new ArrayList<>(); //clear out choices because it has value from getQuestions
+                List<String> displayChoices = new ArrayList<>();
+                Random random = new Random();
+
+                count = 0;
+                items = questionsKeys.size();
+                score = 0;
+
+                //Display loop
+                answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, items);
+                startQuizTimer(correctAnswer, random, questionsKeys, displayChoices, items);
+                choicesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        //String answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
+                        if (choices.get(i).equals(answer)){
+                            Toast.makeText(Quiz_Questions.this, "Correct!", Toast.LENGTH_SHORT).show();
+                            score += 1;
+                            countDownTimer.cancel();
+                            questionsKeys.remove(questionIndex);
+                        } else {
+                            Toast.makeText(Quiz_Questions.this, "Wrong!", Toast.LENGTH_SHORT).show();
+                            questionsKeys.remove(questionIndex);
+                            countDownTimer.cancel();
+                        }
+
+                        if (questionsKeys.size() != 0){
+                            answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices, items);
+                            startQuizTimer(correctAnswer, random, questionsKeys, displayChoices, items);
+                        } else {
+                            finish();
+                            endTime = System.currentTimeMillis();
+                            runningTime = endTime - startTime;
+                            hasBeenCompleted = true;
+                            startActivity(new Intent(Quiz_Questions.this, Result.class));
+                        }
+
+                    }
+                });
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                System.out.println("Failure on download");
+                Log.e("FireBase Storage", e.getMessage());
             }
         });
 
@@ -179,7 +206,6 @@ public class Quiz_Questions extends AppCompatActivity {
         tvItems.setText(count + " of " + items);
 
         //Nilagay ko
-
         Quiz_Choices_Adapter adapter = new Quiz_Choices_Adapter(this, 0, displayChoices);
         choicesList.setAdapter(adapter);
 
@@ -188,20 +214,21 @@ public class Quiz_Questions extends AppCompatActivity {
 
     //QUIZ TIMER
     private void startQuizTimer(String correctAnswer, Random random, List<String> questionsKeys, List<String> displayChoices, int items){
-        timeLeft = 14;
+        getData();
 
+        pgTimeLeft.setMax(timeSec);
         //DINAGDAG KO - JHUDE
         pgTimeLeft.setVisibility(View.VISIBLE);
         //done
 
-        countDownTimer = new CountDownTimer(15000, 1000) {
+        countDownTimer = new CountDownTimer(timeInMillis, 1000) {
             public void onTick(long millisUntilFinished) {
-                pgTimeLeft.setProgress(timeLeft);
-                timeLeft--;
+                pgTimeLeft.setProgress(timeSec);
+                timeSec--;
             }
             public void onFinish() {
-                timeLeft--;
-                pgTimeLeft.setProgress(timeLeft);
+                timeSec--;
+                pgTimeLeft.setProgress(timeSec);
                 questionsKeys.remove(questionIndex);
                 cancel();
                 if (questionsKeys.size() != 0){
@@ -211,12 +238,24 @@ public class Quiz_Questions extends AppCompatActivity {
                     finish();
                     endTime = System.currentTimeMillis();
                     runningTime = endTime - startTime;
+                    hasBeenCompleted = true;
                     startActivity(new Intent(Quiz_Questions.this, Result.class));
                 }
             }
         }.start();
     }
 
+    public void getData(){
+        TimeDBHelper tDbHelper = new TimeDBHelper(Quiz_Questions.this);
+        Cursor cursor = tDbHelper.readData();
+        if (cursor.getCount() == 0){
+            tDbHelper.add(14,15000);
+        }
+        if(cursor.getCount()==1 && cursor.moveToFirst()){
+            timeSec = cursor.getInt(1);
+            timeInMillis = cursor.getInt(2);
+        }
+    }
 
     @Override
     public void onBackPressed(){
