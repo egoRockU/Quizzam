@@ -12,10 +12,6 @@ public class Quiz_Name_Constructor {
         this.quizFileName = quizFileName;
     }
 
-    public int getQuizitem() {
-        return quizitem;
-    }
-
     public String getQuizname() {
         return quizname;
     }

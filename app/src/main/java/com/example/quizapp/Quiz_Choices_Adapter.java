@@ -33,7 +33,6 @@ public class Quiz_Choices_Adapter extends ArrayAdapter {
             convertView = i.inflate(R.layout.quiz_choices, null);
         }
         if (arr.size()>0){
-            //Quiz_Choices_Constructor d = arr.get(position);
             String d = arr.get(position);
 
             TextView textViewQuizChoice = convertView.findViewById(R.id.txtViewQuizChoice);

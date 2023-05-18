@@ -1,23 +1,17 @@
 package com.example.quizapp;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.database.Cursor;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,11 +25,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.ListResult;
 import com.google.firebase.storage.StorageReference;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,7 +76,6 @@ public class QuizNameMain extends AppCompatActivity implements NavigationView.On
 
         navigationView.setCheckedItem(R.id.dashboard);
 
-        /* For Drawer */
 
         //User Stats
         tvHighScore = findViewById(R.id.tvHighScoreValues);
@@ -208,7 +196,6 @@ public class QuizNameMain extends AppCompatActivity implements NavigationView.On
         int highScore = HighScore;
         int quizCompleted = QuizCompleted;
         int perfectQuiz = PerfectQuiz;
-
         tvHighScore.setText(String.valueOf(highScore));
         tvQuizCompleted.setText(String.valueOf(quizCompleted));
         tvPerfectQuiz.setText(String.valueOf(perfectQuiz));

@@ -3,7 +3,6 @@ package com.example.quizapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -31,7 +30,6 @@ public class Result extends AppCompatActivity {
         items = Quiz_Questions.items;
         isQuizCompleted = Quiz_Questions.hasBeenCompleted;
 
-        //userStats
         updateStats();
 
 
@@ -46,6 +44,7 @@ public class Result extends AppCompatActivity {
         } else {
             tvCongratulatoryMsg.setText("Just do it!");
         }
+
 
         timeInMillis = Quiz_Questions.runningTime;
         timeSec = timeInMillis/1000;
@@ -78,6 +77,7 @@ public class Result extends AppCompatActivity {
         DatabaseHelper db = new DatabaseHelper(Result.this);
         db.update("1", highScore, quizCompleted, perfectQuiz);
         tvPerfectQuizValues.setText(String.valueOf(perfectQuiz));
+        db.close();
     }
 
 

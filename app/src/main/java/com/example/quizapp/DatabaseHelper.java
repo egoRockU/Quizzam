@@ -53,6 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             System.out.println("User Stats Record Inserted");
         }
+        db.close();
     }
 
     void update(String COLUMN_ID, int highScore, int quizCompleted, int perfectQuiz){
@@ -69,6 +70,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             System.out.println("User Stats Update Successful");
         }
+        db.close();
     }
 
     Cursor readData(){

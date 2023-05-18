@@ -5,14 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -44,7 +42,7 @@ public class Quiz_Questions extends AppCompatActivity {
     private ListView choicesList;
     private ProgressBar pgTimeLeft;
     private LinkedHashMap<String, List<String>> questions;
-    private String answer;//this is only for quiz function
+    private String answer;
     private int questionIndex;
     List<String> choices;
     public static int count, items, score, timeSec, timeInMillis;
@@ -54,7 +52,6 @@ public class Quiz_Questions extends AppCompatActivity {
     public static long runningTime;
 
     TextView tvSubject;
-    public List<Quiz_Choices_Constructor> Choices;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +72,6 @@ public class Quiz_Questions extends AppCompatActivity {
         tvSubject.setText(QuizNameMain.subjectName);
 
     }
-    //GET QUESTIONS
     private void getQuestions(byte[] bytes) {
         String question = "";
         List<String> choices = new ArrayList<>();
@@ -115,7 +111,6 @@ public class Quiz_Questions extends AppCompatActivity {
     }
 
 
-    //START QUIZ
     private void startQuiz(){
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference fileRef = storage.getReference().child("QuizFolder/" + QuizNameMain.chosenTopic);
@@ -128,7 +123,7 @@ public class Quiz_Questions extends AppCompatActivity {
 
                 String correctAnswer = "a";
 
-                List<String> questionsKeys = new ArrayList<>(questions.keySet()); //list of keys(questions)
+                List<String> questionsKeys = new ArrayList<>(questions.keySet());
                 choices = new ArrayList<>(); //clear out choices because it has value from getQuestions
                 List<String> displayChoices = new ArrayList<>();
                 Random random = new Random();
@@ -143,7 +138,6 @@ public class Quiz_Questions extends AppCompatActivity {
                 choicesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        //String answer = loadQuestions(correctAnswer, random, questionsKeys, displayChoices);
                         if (choices.get(i).equals(answer)){
                             StyleableToast.makeText(Quiz_Questions.this, "Correct!", Toast.LENGTH_SHORT, R.style.ToastCorrect).show();
                             score += 1;
@@ -181,7 +175,6 @@ public class Quiz_Questions extends AppCompatActivity {
 
     }
 
-    //LOAD QUESTIONS
     private String loadQuestions(String correctAnswer, Random random, List<String> questionsKeys, List<String> displayChoices, int items){
         count++;
         questionIndex = random.nextInt(questionsKeys.size()); //get random index from questions keyset
@@ -207,21 +200,18 @@ public class Quiz_Questions extends AppCompatActivity {
         }
         tvItems.setText(count + " of " + items);
 
-        //Nilagay ko
         Quiz_Choices_Adapter adapter = new Quiz_Choices_Adapter(this, 0, displayChoices);
         choicesList.setAdapter(adapter);
 
         return answer;
     }
 
-    //QUIZ TIMER
+
     private void startQuizTimer(String correctAnswer, Random random, List<String> questionsKeys, List<String> displayChoices, int items){
         getData();
 
         pgTimeLeft.setMax(timeSec);
-        //DINAGDAG KO - JHUDE
         pgTimeLeft.setVisibility(View.VISIBLE);
-        //done
 
         countDownTimer = new CountDownTimer(timeInMillis, 1000) {
             public void onTick(long millisUntilFinished) {
@@ -257,6 +247,8 @@ public class Quiz_Questions extends AppCompatActivity {
             timeSec = cursor.getInt(1);
             timeInMillis = cursor.getInt(2);
         }
+        tDbHelper.close();
+        cursor.close();
     }
 
     @Override

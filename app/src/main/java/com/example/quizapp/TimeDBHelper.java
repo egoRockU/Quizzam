@@ -49,6 +49,7 @@ public class TimeDBHelper extends SQLiteOpenHelper {
         } else {
             System.out.println("Record Inserted");
         }
+        db.close();
     }
 
     void update(String COLUMN_ID, int timeInSec, int timeInMillis){
@@ -63,6 +64,7 @@ public class TimeDBHelper extends SQLiteOpenHelper {
         } else {
             System.out.println("Time Stats Update Successful");
         }
+        db.close();
 
     }
 
