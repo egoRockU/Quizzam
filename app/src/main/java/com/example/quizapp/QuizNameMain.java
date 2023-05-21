@@ -2,6 +2,7 @@ package com.example.quizapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,6 +29,8 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.github.muddz.styleabletoast.StyleableToast;
 
 public class QuizNameMain extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -142,7 +146,6 @@ public class QuizNameMain extends AppCompatActivity implements NavigationView.On
                     String subject = getSubject(itemName);
                     Questions.add(new Quiz_Name_Constructor(itemCount, subject, itemFileName));
                 }
-
                 Quiz_NameAdapter adapter = new Quiz_NameAdapter(QuizNameMain.this, 0, Questions);
                 quizList.setAdapter(adapter);
 
@@ -159,7 +162,7 @@ public class QuizNameMain extends AppCompatActivity implements NavigationView.On
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.e("Firebase Storage", e.getMessage());
+                StyleableToast.makeText(QuizNameMain.this, "Please make sure you have internet connection", Toast.LENGTH_SHORT, R.style.ToastWrong).show();
             }
         });
 

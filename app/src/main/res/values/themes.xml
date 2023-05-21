@@ -46,4 +46,15 @@
         <item name="stSolidBackground">false</item>
         <item name="stIconStart">@drawable/baseline_restart_alt_24</item>
     </style>
+
+    <style name="ToastNoWifi">
+        <item name="stTextColor">#FA7E05</item>
+        <item name="stRadius">50dp</item>
+        <item name="stTextSize">14sp</item>
+        <item name="stTextBold">true</item>
+        <item name="android:gravity">top</item>
+        <item name="stColorBackground">#Fff</item>
+        <item name="stSolidBackground">false</item>
+        <item name="stIconStart">@drawable/baseline_wifi_off_24</item>
+    </style>
 </resources>
