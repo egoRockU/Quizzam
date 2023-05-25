@@ -57,4 +57,10 @@
         <item name="stSolidBackground">false</item>
         <item name="stIconStart">@drawable/baseline_wifi_off_24</item>
     </style>
+    <style name="Theme.QuizApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.QuizApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.QuizApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
