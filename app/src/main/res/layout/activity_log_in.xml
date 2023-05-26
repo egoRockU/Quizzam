@@ -1,73 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bgmain"
     tools:context=".LogIn">
 
-    <EditText
-        android:id="@+id/edTxtEnterEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Enter your Email"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.395" />
 
-    <EditText
-        android:id="@+id/edTxtEnterPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Enter your Password"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.537" />
-
-    <Button
-        android:id="@+id/btnSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign In"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.667" />
+    <!--Top Quizzam -->
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="266dp"
+        android:layout_height="68dp"
+        android:fontFamily="@font/of_bold"
+        android:text="Quizzam!"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        android:layout_marginTop="128dp"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log In Your Account"
-        android:textColor="#FF9800"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.297" />
+        android:fontFamily="@font/roboto_light"
+        android:text="challenge you on different subjects"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:layout_marginTop="215dp"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
-        android:id="@+id/tvForgotPassword"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot your Password?"
-        android:textColor="#FF9800"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.842" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:fontFamily="@font/roboto_light"
+        android:text="100+ UCCAT reviewer questions that will"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:layout_marginTop="200dp"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/login"
+        android:layout_marginTop="250dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="LOGIN YOUR ACCOUNT"
+            android:textColor="#FA7E05"
+            android:fontFamily="@font/roboto"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="5dp"
+            android:background="@drawable/startbuttonshape"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:backgroundTint="#FA7E05"/>
+
+        <EditText
+            android:id="@+id/edTxtEnterEmail"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Enter your Email"
+            android:layout_marginTop="90dp"
+            android:drawableLeft="@drawable/baseline_email_24"
+            android:background="@drawable/lastdashboardbtn"
+            android:inputType="textPersonName"
+            android:backgroundTint="#FA7E05"
+            android:textColor="#FA7E05"
+            android:layout_centerHorizontal="true"
+            android:textSize="15sp"
+            />
+
+        <EditText
+            android:id="@+id/edTxtEnterPassword"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:textColor="#FA7E05"
+            android:hint="Enter your Password"
+            android:layout_marginTop="145dp"
+            android:inputType="textPassword"
+            android:backgroundTint="#FA7E05"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/baseline_lock_24"
+            android:background="@drawable/lastdashboardbtn"
+            android:textSize="15sp"
+            />
+
+        <Button
+            android:id="@+id/btnSignIn"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:text="Sign In"
+            android:layout_marginTop="200dp"
+            android:background="@drawable/startbuttonshape"
+            android:layout_centerHorizontal="true"
+            />
+
+        <TextView
+            android:id="@+id/tvForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot your Password?"
+            android:textColor="#FA7E05"
+            android:layout_marginTop="300dp"
+            android:layout_centerHorizontal="true"
+            android:textSize="14sp"
+            android:fontFamily="@font/of_med"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="2dp"
+            android:background="@drawable/startbuttonshape"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="330dp"
+            android:backgroundTint="#FA7E05"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Want to be a Contributor? Contact Us."
+            android:textColor="#FA7E05"
+            android:layout_marginTop="340dp"
+            android:layout_centerHorizontal="true"
+            android:textSize="14sp"
+            android:fontFamily="@font/of_med"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

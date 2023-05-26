@@ -81,6 +81,18 @@
             android:textColor="@color/white"
             android:fontFamily="@font/of_light"
             />
+
+        <Button
+            android:id="@+id/btnRetake"
+            android:layout_width="133dp"
+            android:layout_height="38dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="560dp"
+            android:background="@drawable/startbuttonshape"
+            android:onClick="RetakeQuiz"
+            android:text="Retake Quiz"
+            android:textAllCaps="false"
+            app:backgroundTint="#FB7F05" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -147,18 +159,6 @@
             />
 
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/btnRetake"
-        android:layout_width="133dp"
-        android:layout_height="38dp"
-        android:background="@drawable/startbuttonshape"
-        android:onClick="RetakeQuiz"
-        android:text="Retake Quiz"
-        android:textAllCaps="false"
-        app:backgroundTint="#FB7F05"
-        android:layout_marginTop="560dp"
-        android:layout_marginLeft="50dp"/>
 
     <Button
         android:id="@+id/btnDashboard"

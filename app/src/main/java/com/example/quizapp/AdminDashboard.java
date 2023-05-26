@@ -36,4 +36,7 @@ public class AdminDashboard extends AppCompatActivity {
     public void Add(View view){
             startActivity(new Intent(AdminDashboard.this, adminAddQuiz.class));
     }
+    public void Modify(View view){
+        startActivity(new Intent(AdminDashboard.this, adminModifyQuiz.class));
+    }
 }

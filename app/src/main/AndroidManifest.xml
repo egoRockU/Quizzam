@@ -13,6 +13,15 @@
         android:theme="@style/Theme.QuizApp"
         tools:targetApi="31">
         <activity
+            android:name=".adminEditQuiz"
+            android:exported="false" />
+        <activity
+            android:name=".adminModifyShowQuestion"
+            android:exported="false" />
+        <activity
+            android:name=".adminModifyQuiz"
+            android:exported="false" />
+        <activity
             android:name=".adminAddQuiz"
             android:exported="false" />
         <activity

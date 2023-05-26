@@ -171,8 +171,6 @@ public class Quiz_Questions extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     private String loadQuestions(String correctAnswer, Random random, List<String> questionsKeys, List<String> displayChoices, int items){

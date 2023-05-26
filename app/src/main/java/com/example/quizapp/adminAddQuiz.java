@@ -161,6 +161,7 @@ public class adminAddQuiz extends AppCompatActivity {
             writer.close();
             System.out.println(internalStorageDir);
 
+            //Uploading file
             Uri file = Uri.fromFile(new File(internalStorageDir+"/"+fileName));
             StorageReference testRef = storageRef.child(file.getLastPathSegment());
             UploadTask uploadTask = testRef.putFile(file);
