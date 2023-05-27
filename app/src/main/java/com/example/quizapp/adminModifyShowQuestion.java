@@ -8,9 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -31,7 +29,6 @@ import java.util.regex.Pattern;
 
 public class adminModifyShowQuestion extends AppCompatActivity {
 
-    Button btnDoneModify;
     ListView lvQuestions;
     static LinkedHashMap<String, List<String>> questionsSet;
     static String chosenQuestion;
@@ -40,12 +37,12 @@ public class adminModifyShowQuestion extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_modify_show_question);
+        setContentView(R.layout.activity_admin_modify_b);
 
         questionsSet = new LinkedHashMap<>();
 
-        btnDoneModify = findViewById(R.id.btnDoneModify);
         lvQuestions = findViewById(R.id.lvQuestions);
+
 
         listQuestions();
 
@@ -61,7 +58,7 @@ public class adminModifyShowQuestion extends AppCompatActivity {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String line;
             //creating pattern for matching
-            Pattern qPat = Pattern.compile("\\d{1,3}[.] .*");
+            Pattern qPat = Pattern.compile("^Q. ");
             Pattern cPat = Pattern.compile("[A-E][.] .*[^*]");
             Matcher Qm, Cm;
 
@@ -70,7 +67,7 @@ public class adminModifyShowQuestion extends AppCompatActivity {
                 Cm = cPat.matcher(line);
                 //if line matches..
                 if (Qm.find()) {
-                    question = line;
+                    question = line.replaceAll("^Q. ","");
                     choices = new ArrayList<>();//declare new arraylist to clear the choices. since new question has been set.
                 }
                 if (Cm.find()) {

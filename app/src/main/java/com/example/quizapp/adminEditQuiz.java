@@ -24,8 +24,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class adminEditQuiz extends AppCompatActivity {
 
@@ -33,8 +31,8 @@ public class adminEditQuiz extends AppCompatActivity {
     FirebaseStorage storage;
     StorageReference storageRef;
     Button btnSaveChanges;
-    EditText edEditQuestion, edEditChoiceA, edEditChoiceB, edEditChoiceC, edEditChoiceD, edEditChoiceE;
-    String selectedQuestion, question, choiceA, choiceB, choiceC, choiceD, choiceE;
+    EditText edTxtEditQuizName,edEditQuestion, edEditChoiceA, edEditChoiceB, edEditChoiceC, edEditChoiceD, edEditChoiceE;
+    String subjectName, selectedQuestion, question, choiceA, choiceB, choiceC, choiceD, choiceE;
     ArrayList<String> choices;
     LinkedHashMap<String, List<String>> changedSet;
 
@@ -45,13 +43,14 @@ public class adminEditQuiz extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_edit_quiz);
+        setContentView(R.layout.activity_admin_modify_c);
 
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference().child("QuizFolder/");
 
         changedSet = new LinkedHashMap<>(adminModifyShowQuestion.questionsSet);
         selectedQuestion = adminModifyShowQuestion.chosenQuestion;
+        edTxtEditQuizName = findViewById(R.id.edTxtEditQuizName);
         edEditQuestion = findViewById(R.id.edEditQuestion);
         edEditChoiceA = findViewById(R.id.edEditChoiceA);
         edEditChoiceB = findViewById(R.id.edEditChoiceB);
@@ -60,6 +59,7 @@ public class adminEditQuiz extends AppCompatActivity {
         edEditChoiceE = findViewById(R.id.edEditChoiceE);
         btnSaveChanges = findViewById(R.id.btnSaveChanges);
 
+        subjectName = adminModifyQuiz.subjectName;
         choices = new ArrayList<>(adminModifyShowQuestion.chosenChoices);
         show();
 
@@ -80,31 +80,33 @@ public class adminEditQuiz extends AppCompatActivity {
 
     }
     private void show(){
+
+        edTxtEditQuizName.setText(subjectName);
         edEditQuestion.setText(adminModifyShowQuestion.chosenQuestion);
 
         if (choices.size()>=1){
             choiceA = choices.get(0).replaceAll("-$", "");
-            choiceA = choiceA.replaceAll("[A-E][.]", "");
+            choiceA = choiceA.replaceAll("[A-E][.] ", "");
             edEditChoiceA.setText(choiceA);
         }
         if (choices.size()>=2){
             choiceB = choices.get(1).replaceAll("-$", "");
-            choiceB = choiceB.replaceAll("[A-E][.]", "");
+            choiceB = choiceB.replaceAll("[A-E][.] ", "");
             edEditChoiceB.setText(choiceB);
         }
         if(choices.size()>=3){
             choiceC = choices.get(2).replaceAll("-$", "");
-            choiceC = choiceC.replaceAll("[A-E][.]", "");
+            choiceC = choiceC.replaceAll("[A-E][.] ", "");
             edEditChoiceC.setText(choiceC);
         }
         if(choices.size()>=4){
             choiceD = choices.get(3).replaceAll("-$", "");
-            choiceD = choiceD.replaceAll("[A-E][.]", "");
+            choiceD = choiceD.replaceAll("[A-E][.] ", "");
             edEditChoiceD.setText(choiceD);
         }
         if(choices.size()>=5){
             choiceE = choices.get(4).replaceAll("-$", "");
-            choiceE = choiceE.replaceAll("[A-E][.]", "");
+            choiceE = choiceE.replaceAll("[A-E][.] ", "");
             edEditChoiceE.setText(choiceE);
         }
     }
@@ -141,7 +143,8 @@ public class adminEditQuiz extends AppCompatActivity {
         }
         boolean answerValidity = checkAns();
         boolean questionValidity = checkQuestion();
-        if (answerValidity && questionValidity){
+        boolean quizNameValidity = checkQuizName();
+        if (answerValidity && questionValidity && quizNameValidity){
             questionSaved = true;
             questionBlock = new adminQuestion(question, savedChoices);
         }
@@ -165,16 +168,19 @@ public class adminEditQuiz extends AppCompatActivity {
     private boolean checkQuestion(){
         question = edEditQuestion.getText().toString();
         if (question.length() != 0){
-            Pattern qPat = Pattern.compile("\\d{1,3}[.] .*");
-            Matcher Qm = qPat.matcher(question);
-            if (Qm.find()){
-                return true;
-            } else{
-                edEditQuestion.setError("Please don't forget item number followed by space. (Ex.\"1. \")");
-                return false;
-            }
+            return true;
         }else{
             edEditQuestion.setError("Please don't forget the question.");
+            return false;
+        }
+    }
+
+    private boolean checkQuizName(){
+        subjectName = edTxtEditQuizName.getText().toString();
+        if (subjectName.length() != 0){
+            return true;
+        } else {
+            edTxtEditQuizName.setError("Do not leave the Quiz Name Blank");
             return false;
         }
     }
@@ -195,19 +201,19 @@ public class adminEditQuiz extends AppCompatActivity {
     }
     private void updateQuiz(){
         String internalStorageDir = getFilesDir().getAbsolutePath();
-        String fileName = adminModifyQuiz.chosenTopic;
+        String fileName = "["+changedSet.size()+"]"+subjectName+".txt";
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(internalStorageDir + "/" + fileName));
             for (Map.Entry<String,List<String>> entrySet: changedSet.entrySet()){
-                writer.write(entrySet.getKey()+"\n");
+                writer.write("Q. "+ entrySet.getKey()+"\n");
                 for (String c: entrySet.getValue()){
-                    if (c.endsWith("*")){
+                    if (c.endsWith("*")||c.endsWith("-")){
                         writer.write(c+"\n");
                     }else{
                         writer.write(c+"-\n");
                     }
                 }
-                writer.write("---");
+                writer.write("---\n");
             }
             writer.close();
 

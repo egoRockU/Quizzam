@@ -138,15 +138,13 @@ public class adminAddQuiz extends AppCompatActivity {
 
     private void uploadQuestion(String quizName, int items) {
         try {
-            int num=0;
             String internalStorageDir = getFilesDir().getAbsolutePath();
             String fileName = "["+items+"]"+quizName+".txt";
             BufferedWriter writer = new BufferedWriter(new FileWriter(internalStorageDir+"/"+fileName));
             for (adminQuestion QUESTION: questions){
                 int choiceIndex = 0;
-                num++;
                 String question = QUESTION.getQuestion();
-                writer.write(num+". "+question+"\n");
+                writer.write("Q. "+question+"\n");
                 for(String c: QUESTION.getChoices()){
                     if (c.endsWith("*")){
                         writer.write(choiceLetters[choiceIndex]+". "+c+"\n");

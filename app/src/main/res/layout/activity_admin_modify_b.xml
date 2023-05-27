@@ -7,23 +7,14 @@
     tools:context=".adminModifyShowQuestion">
 
     <ListView
-        android:layout_width="410dp"
-        android:layout_height="556dp"
         android:id="@+id/lvQuestions"
+        android:layout_width="411dp"
+        android:layout_height="546dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.216" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnDoneModify"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Done"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lvQuestions" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

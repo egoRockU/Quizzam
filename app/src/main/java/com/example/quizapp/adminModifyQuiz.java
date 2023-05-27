@@ -39,7 +39,7 @@ public class adminModifyQuiz extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_modify_quiz);
+        setContentView(R.layout.activity_admin_modify_a);
 
         lvShowQuiz = findViewById(R.id.lvShowQuiz);
         btnReturnToDashboard = findViewById(R.id.btnReturnToDashboard);

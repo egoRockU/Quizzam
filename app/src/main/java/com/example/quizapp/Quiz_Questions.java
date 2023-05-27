@@ -81,7 +81,7 @@ public class Quiz_Questions extends AppCompatActivity {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String line;
             //creating pattern for matching
-            Pattern qPat = Pattern.compile("\\d{1,3}[.] .*");
+            Pattern qPat = Pattern.compile("^Q. ");
             Pattern cPat = Pattern.compile("[A-E][.] .*[^*]");
             Matcher Qm, Cm;
 
@@ -189,7 +189,7 @@ public class Quiz_Questions extends AppCompatActivity {
         }
         String answer = correctAnswer;
         //**** show questions and choices ****
-        tvQuestion.setText(questionsKeys.get(questionIndex).replaceAll("\\d{1,3}[.]\\s",""));
+        tvQuestion.setText(questionsKeys.get(questionIndex).replaceAll("^Q. ",""));
         //iterate the choices arraylist, remove the last character, add to new arraylist. this is only for display purposes.
         choices = questions.get(questionsKeys.get(questionIndex));
         for(String c: choices){
