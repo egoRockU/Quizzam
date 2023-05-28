@@ -1,152 +1,305 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".adminAddQuiz">
+    tools:context=".adminAddQuiz"
+    android:background="@drawable/last">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quizzam!"
+        android:fontFamily="@font/of_bold"
+        android:textColor="#Ffffff"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="275dp"/>
+
+    <!--TOP texts-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/of_light"
+        android:text="What should we do?"
+        android:textColor="#FB7F05"
+        android:layout_marginTop="70dp"
+        android:textSize="12sp"
+        android:layout_marginLeft="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome!"
+        android:textSize="45sp"
+        android:textColor="#FB7F05"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/of_bold"
+        android:layout_marginLeft="30dp"/>
+
+    <!--Quiz name-->
     <EditText
         android:id="@+id/edQuizName"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Quiz_Name_goes_here"
+        android:layout_marginTop="150dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:hint="Add Quiz name here..."
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.147" />
+        android:textColor="#FA7E05"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"
+        android:backgroundTint="#FA7E05"
+        android:textColorHint="#FA7E05"
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        />
+
+    <!--Add Question-->
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Question Here"
-        android:textColor="#3E3E3E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.341"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.234" />
+        android:layout_marginTop="210dp">
 
-    <EditText
-        android:id="@+id/edWriteQuestion"
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Question Here"
+            android:textColor="#FA7E05"
+            android:layout_marginLeft="50dp"
+            android:fontFamily="@font/of_light"
+            android:textSize="16sp"
+            />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/quiz_names_shape"
+                    android:alpha="0.2"
+                    app:tint="#8A000000" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/edWriteQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLines ="4"
+                    android:maxLength ="500"
+                    android:scrollHorizontally="false"
+                    android:ems="10"
+                    android:hint="Write your question here"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/of_med"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/white"
+                    android:background="@drawable/quiz_names_shape"
+                    android:textColorHint="@color/white"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!--Add Choices-->
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Write your question here"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.298" />
+        android:layout_height="250dp"
+        android:layout_marginTop="400dp"
+        >
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Choices Here"
-        android:textColor="#3E3E3E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.334"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.384" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Question Choices Here"
+            android:textColor="#FA7E05"
+            android:layout_marginLeft="50dp"
+            android:fontFamily="@font/of_light"
+            android:textSize="16sp"
+            />
 
-    <EditText
-        android:id="@+id/edChoiceA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.459" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:layout_marginTop="30dp"
+            >
 
-    <EditText
-        android:id="@+id/edChoiceB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.539" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="10dp"
+                >
 
-    <EditText
-        android:id="@+id/edChoiceC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
+                <EditText
+                    android:id="@+id/edChoiceA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/quiz_choices_shape"
+                    android:ems="10"
+                    android:fontFamily="@font/of_med"
+                    android:gravity="center"
+                    android:hint="Choice 1 (Put * at end if answer)"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="500"
+                    android:maxLines="2"
+                    android:padding="10dp"
+                    android:scrollHorizontally="false"
+                    android:textColor="#FA7E05"
+                    android:textColorHint="#FA7E05"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edChoiceD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.692" />
+                <EditText
+                    android:id="@+id/edChoiceB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/quiz_choices_shape"
+                    android:ems="10"
+                    android:fontFamily="@font/of_med"
+                    android:gravity="center"
+                    android:hint="Choice 2 (Put * at end if answer)"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="500"
+                    android:maxLines="2"
+                    android:padding="10dp"
+                    android:scrollHorizontally="false"
+                    android:textColor="#FA7E05"
+                    android:textColorHint="#FA7E05"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edChoiceA" />
 
-    <EditText
-        android:id="@+id/edChoiceE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.776" />
+                <EditText
+                    android:id="@+id/edChoiceC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/quiz_choices_shape"
+                    android:ems="10"
+                    android:fontFamily="@font/of_med"
+                    android:gravity="center"
+                    android:hint="Choice 3 (Put * at end if answer)"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="500"
+                    android:maxLines="2"
+                    android:padding="10dp"
+                    android:scrollHorizontally="false"
+                    android:textColor="#FA7E05"
+                    android:textColorHint="#FA7E05"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edChoiceB" />
 
-    <Button
-        android:id="@+id/btnNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.315"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.941" />
+                <EditText
+                    android:id="@+id/edChoiceD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/quiz_choices_shape"
+                    android:ems="10"
+                    android:fontFamily="@font/of_med"
+                    android:gravity="center"
+                    android:hint="Choice 4 (Put * at end if answer)"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="500"
+                    android:maxLines="2"
+                    android:padding="10dp"
+                    android:scrollHorizontally="false"
+                    android:textColor="#FA7E05"
+                    android:textColorHint="#FA7E05"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edChoiceC" />
 
-    <Button
-        android:id="@+id/btnDone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Done"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.687"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.941" />
+                <EditText
+                    android:id="@+id/edChoiceE"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/quiz_choices_shape"
+                    android:ems="10"
+                    android:fontFamily="@font/of_med"
+                    android:gravity="center"
+                    android:hint="Choice 5 (Put * at end if answer)"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="500"
+                    android:maxLines="2"
+                    android:padding="10dp"
+                    android:scrollHorizontally="false"
+                    android:textColor="#FA7E05"
+                    android:textColorHint="#FA7E05"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edChoiceD" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <!--change
+    android:layout_marginTop="670dp" to
+    android:layout_marginTop="615dp" (for emulator)
+-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="670dp"
+        android:gravity="center|bottom">
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="120dp"
+            android:layout_height="38dp"
+            android:text="Next"
+            android:background="@drawable/startbuttonshape"
+            android:layout_marginLeft="20dp"
+            android:textAllCaps="false"
+            android:layout_marginRight="10dp"
+            />
+
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="120dp"
+            android:layout_height="38dp"
+            android:text="Done"
+            android:background="@drawable/lastdashboardbtn"
+            android:textColor="#FA7E05"
+            android:textAllCaps="false"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

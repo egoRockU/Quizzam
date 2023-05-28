@@ -27,26 +27,19 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class adminModifyShowQuestion extends AppCompatActivity {
+public class adminViewB extends AppCompatActivity {
 
-    ListView lvQuestions;
-    static LinkedHashMap<String, List<String>> questionsSet;
-    static String chosenQuestion;
-    static ArrayList<String> chosenChoices;
+    ListView listViewShowQuiz;
+    LinkedHashMap<String, List<String>> questionsSet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_modify_b);
+        setContentView(R.layout.activity_admin_view_b);
 
-        questionsSet = new LinkedHashMap<>();
+        listViewShowQuiz = findViewById(R.id.listViewShowQuiz);
 
-        lvQuestions = findViewById(R.id.lvQuestions);
-
-
-        listQuestions();
-
-
+        showQuestions();
     }
 
     private void getQuestions(byte[] bytes) {
@@ -87,30 +80,19 @@ public class adminModifyShowQuestion extends AppCompatActivity {
         }
     }
 
-    private void listQuestions(){
+    private void showQuestions(){
         FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference fileRef = storage.getReference().child("QuizFolder/" + adminModifyQuiz.chosenTopic);
+        StorageReference fileRef = storage.getReference().child("QuizFolder/" + adminViewA.chosenTopic);
         final long ONE_MEGABYTE = 1024*1024;
-
         fileRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {
                 getQuestions(bytes);
 
-                ArrayList<String> questions = new ArrayList<>(questionsSet.keySet());
+                ShowQuestionsAdapter adapter = new ShowQuestionsAdapter(adminViewB.this, questionsSet);
+                System.out.println(questionsSet);
+                listViewShowQuiz.setAdapter(adapter);
 
-                adminModifyShowQuestionAdapter adapter = new adminModifyShowQuestionAdapter(adminModifyShowQuestion.this, 0, questions);
-                lvQuestions.setAdapter(adapter);
-                lvQuestions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        chosenQuestion = questions.get(position);
-                        chosenChoices = new ArrayList<>(questionsSet.get(chosenQuestion));
-                        startActivity(new Intent(adminModifyShowQuestion.this, adminEditQuiz.class));
-
-                    }
-                });
-                System.out.println(questions);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -119,5 +101,6 @@ public class adminModifyShowQuestion extends AppCompatActivity {
             }
         });
     }
+
 
 }

@@ -39,4 +39,10 @@ public class AdminDashboard extends AppCompatActivity {
     public void Modify(View view){
         startActivity(new Intent(AdminDashboard.this, adminModifyQuiz.class));
     }
+    public void View(View view){
+        startActivity(new Intent(AdminDashboard.this, adminViewA.class));
+    }
+    public void Delete(View view){
+        startActivity(new Intent(AdminDashboard.this, adminDelete.class));
+    }
 }

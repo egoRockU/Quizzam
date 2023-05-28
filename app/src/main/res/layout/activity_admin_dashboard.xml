@@ -119,6 +119,7 @@
 
             <ImageButton
                 android:id="@+id/ibView"
+                android:onClick="View"
                 android:layout_width="match_parent"
                 android:layout_height="103dp"
                 android:src="@drawable/admindb_modify"
@@ -149,6 +150,7 @@
 
             <ImageButton
                 android:id="@+id/ibDelete"
+                android:onClick="Delete"
                 android:layout_width="match_parent"
                 android:layout_height="103dp"
                 android:src="@drawable/admindb_modify"

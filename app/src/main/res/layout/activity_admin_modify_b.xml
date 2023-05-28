@@ -1,20 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".adminModifyShowQuestion">
+    tools:context=".adminModifyShowQuestion"
+    android:background="@drawable/last">
+
+    <!--TOP texts-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/of_light"
+        android:text="What should we modify?"
+        android:textColor="#FB7F05"
+        android:layout_marginTop="70dp"
+        android:textSize="12sp"
+        android:layout_marginLeft="30dp"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome!"
+        android:textSize="45sp"
+        android:textColor="#FB7F05"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/of_bold"
+        android:layout_marginLeft="30dp"/>
 
     <ListView
         android:id="@+id/lvQuestions"
-        android:layout_width="411dp"
-        android:layout_height="546dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

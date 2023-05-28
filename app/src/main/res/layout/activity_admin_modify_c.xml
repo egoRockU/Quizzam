@@ -1,138 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".adminEditQuiz">
+    tools:context=".adminEditQuiz"
+    android:background="@drawable/last">
 
     <TextView
-        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Question Here"
-        android:textColor="#3E3E3E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.34"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.178" />
+        android:text="Quizzam!"
+        android:fontFamily="@font/of_bold"
+        android:textColor="#Ffffff"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="275dp"/>
 
-    <EditText
-        android:id="@+id/edEditQuestion"
+    <!--TOP texts-->
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Edit Question Here"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.239" />
+        android:fontFamily="@font/of_light"
+        android:text="What should we do?"
+        android:textColor="#FB7F05"
+        android:layout_marginTop="70dp"
+        android:textSize="12sp"
+        android:layout_marginLeft="30dp"/>
 
     <TextView
-        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit choices here"
-        android:textColor="#3E3E3E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.328"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.331" />
+        android:text="Welcome!"
+        android:textSize="45sp"
+        android:textColor="#FB7F05"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/of_bold"
+        android:layout_marginLeft="30dp"/>
 
-    <EditText
-        android:id="@+id/edEditChoiceA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408" />
 
-    <EditText
-        android:id="@+id/edEditChoiceB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp">
+        <EditText
+            android:id="@+id/edTxtEditQuizName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="#FA7E05"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:backgroundTint="#FA7E05"
+            android:textColorHint="#FA7E05"
+            android:hint="Edit Quiz Name Here" />
 
-    <EditText
-        android:id="@+id/edEditChoiceC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.59" />
+        <EditText
+            android:id="@+id/edEditQuestion"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Edit Question Here..."
+            android:inputType="textPersonName"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="#FA7E05"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:backgroundTint="#FA7E05"
+            android:textColorHint="#FA7E05"
+            android:layout_marginTop="75dp"/>
+    </RelativeLayout>
 
-    <EditText
-        android:id="@+id/edEditChoiceD"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.683" />
+        android:layout_height="300dp"
+        android:layout_marginTop="310dp">
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Question Here"
+            android:textColor="#FA7E05"
+            android:layout_marginLeft="50dp"
+            android:fontFamily="@font/of_light"
+            android:textSize="16sp"/>
 
-    <EditText
-        android:id="@+id/edEditChoiceE"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.779" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:layout_marginTop="35dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="10dp">
+
+                <EditText
+                    android:id="@+id/edEditChoiceA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/quiz_choices_shape"
+                    android:ems="10"
+                    android:fontFamily="@font/of_med"
+                    android:gravity="center"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="500"
+                    android:maxLines="2"
+                    android:padding="10dp"
+                    android:scrollHorizontally="false"
+                    android:textColor="#FA7E05"
+                    android:textColorHint="#FA7E05"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/edEditChoiceB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/quiz_choices_shape"
+                    android:ems="10"
+                    android:fontFamily="@font/of_med"
+                    android:gravity="center"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="500"
+                    android:maxLines="2"
+                    android:padding="10dp"
+                    android:scrollHorizontally="false"
+                    android:textColor="#FA7E05"
+                    android:textColorHint="#FA7E05"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edEditChoiceA" />
+
+                <EditText
+                    android:id="@+id/edEditChoiceC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/quiz_choices_shape"
+                    android:ems="10"
+                    android:fontFamily="@font/of_med"
+                    android:gravity="center"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="500"
+                    android:maxLines="2"
+                    android:padding="10dp"
+                    android:scrollHorizontally="false"
+                    android:textColor="#FA7E05"
+                    android:textColorHint="#FA7E05"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edEditChoiceB" />
+
+                <EditText
+                    android:id="@+id/edEditChoiceD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/quiz_choices_shape"
+                    android:ems="10"
+                    android:fontFamily="@font/of_med"
+                    android:gravity="center"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="500"
+                    android:maxLines="2"
+                    android:padding="10dp"
+                    android:scrollHorizontally="false"
+                    android:textColor="#FA7E05"
+                    android:textColorHint="#FA7E05"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edEditChoiceC"/>
+
+                <EditText
+                    android:id="@+id/edEditChoiceE"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/quiz_choices_shape"
+                    android:ems="10"
+                    android:fontFamily="@font/of_med"
+                    android:gravity="center"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="500"
+                    android:maxLines="2"
+                    android:padding="10dp"
+                    android:scrollHorizontally="false"
+                    android:textColor="#FA7E05"
+                    android:textColorHint="#FA7E05"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edEditChoiceD"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </RelativeLayout>
 
     <Button
         android:id="@+id/btnSaveChanges"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="620dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/startbuttonshape"
         android:text="Save Changes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.897" />
+        android:textAllCaps="false"
+        android:layout_centerHorizontal="true"/>
 
-    <EditText
-        android:id="@+id/edTxtEditQuizName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Edit Quiz Name Here"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.695" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

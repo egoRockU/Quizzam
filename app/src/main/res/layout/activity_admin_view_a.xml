@@ -4,22 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".adminModifyQuiz"
+    tools:context=".adminViewA"
     android:background="@drawable/last">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quizzam!"
+        android:fontFamily="@font/of_bold"
+        android:textColor="#Ffffff"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="275dp"/>
 
     <!--TOP texts-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/of_light"
-        android:text="What should we modify?"
+        android:text="What do you want to view?"
         android:textColor="#FB7F05"
         android:layout_marginTop="70dp"
         android:textSize="12sp"
         android:layout_marginLeft="30dp"/>
 
     <TextView
-        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome!"
@@ -31,21 +40,11 @@
 
     <ListView
         android:id="@+id/lvShowQuiz"
-        android:layout_marginTop="160dp"
-        android:layout_marginBottom="150dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:divider="@null"
-        android:dividerHeight="0dp" />
-
-    <Button
-        android:id="@+id/btnReturnToDashboard"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:text="Return To Dashboard"
-        android:onClick="ReturnToDashboard"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="600dp"
-        android:background="@drawable/startbuttonshape"/>
-
+        android:dividerHeight="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="50dp"
+        />
 </RelativeLayout>

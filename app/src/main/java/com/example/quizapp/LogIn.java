@@ -1,9 +1,15 @@
 package com.example.quizapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ContextThemeWrapper;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +23,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.List;
+
 
 public class LogIn extends AppCompatActivity {
 
@@ -25,7 +33,7 @@ public class LogIn extends AppCompatActivity {
     private EditText edTxtEnterEmail, edTxtEnterPassword;
     private String email, password;
     private Button btnSignIn;
-    private TextView tvForgotPassword;
+    private TextView tvForgotPassword, tvContribute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +44,7 @@ public class LogIn extends AppCompatActivity {
         edTxtEnterPassword = findViewById(R.id.edTxtEnterPassword);
         btnSignIn = findViewById(R.id.btnSignIn);
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
+        tvContribute = findViewById(R.id.tvContibute);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -67,6 +76,13 @@ public class LogIn extends AppCompatActivity {
             }
         });
 
+        tvContribute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertContribute();
+            }
+        });
+
     }
 
     void signIn(String email, String password){
@@ -94,6 +110,45 @@ public class LogIn extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    void alertContribute(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AlertDialogCustom));
+        alert.setTitle("How to be a Contributor?");
+        alert.setMessage("1. Indicate your full name.\n2.Indicate Your Profession \n3. Are you related to University of Caloocan City by any chance? \n4. Tell us why do you want to be a contributor? \n5. Your Email\n" +
+                "Developers will give you a feedback once your application was reviewed.");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                openGmail();
+                finish();
+            }
+        });
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        alert.create().show();
+    }
+
+    private void openGmail(){
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:" + "gerwinlagutan@gmail.com"));
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Contributor Application");
+        intent.putExtra(Intent.EXTRA_TEXT, "1. Indicate your full name.\n2.Indicate Your Profession \n3. Are you related to University of Caloocan City by any chance? \n4. Tell us why do you want to be a contributor? \n5. Your Email\n" +
+                "Developers will give you a feedback once your application was reviewed.");
+
+        PackageManager packageManager = getPackageManager();
+        List<ResolveInfo> resolveInfoList = packageManager.queryIntentActivities(intent, 0);
+
+
+        if (resolveInfoList.size() > 0) {
+            startActivity(intent);
+        } else {
+            Toast.makeText(this, "No email app found.", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

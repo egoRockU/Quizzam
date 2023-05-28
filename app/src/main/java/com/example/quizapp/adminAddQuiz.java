@@ -76,7 +76,7 @@ public class adminAddQuiz extends AppCompatActivity {
                         uploadQuestion(quizName, items);
                         Toast.makeText(adminAddQuiz.this, "Upload Successful", Toast.LENGTH_SHORT).show();
                         finish();
-                        startActivity(new Intent(adminAddQuiz.this, MainActivity.class));
+                        startActivity(new Intent(adminAddQuiz.this, AdminDashboard.class));
                     }
 
                 }
