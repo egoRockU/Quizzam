@@ -8,6 +8,7 @@
     tools:context=".QuizNameMain"
     android:id="@+id/dashboard">
 
+
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,12 +18,14 @@
 
 
         <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/drawerview"
-        app:headerLayout="@layout/drawer_header"
-        app:menu="@menu/drawer_menu"
-        android:layout_gravity="start" />
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/drawerview"
+            app:headerLayout="@layout/drawer_header"
+            app:menu="@menu/drawer_menu"
+            android:layout_gravity="start" />
+
+
 
 
         <!--Overall Layout-->
@@ -48,7 +51,7 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="10dp">
                 <ImageView
                     android:layout_marginTop="70dp"
                     android:layout_width="match_parent"
@@ -101,7 +104,7 @@
 
             <!-- Completed and Perfect Quiz -->
             <RelativeLayout
-                android:layout_marginTop="240dp"
+                android:layout_marginTop="200dp"
                 android:layout_marginBottom="370dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -110,7 +113,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="70dp"
                     android:gravity="left"
                     android:layout_marginLeft="60dp">
 
@@ -141,8 +144,8 @@
 
                 <ImageView
                     android:layout_width="5dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="110dp"
+                    android:layout_marginTop="55dp"
+                    android:layout_marginBottom="20dp"
                     android:layout_height="match_parent"
                     android:layout_centerHorizontal="true"
                     android:background="@color/white"/>
@@ -150,8 +153,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginRight="70dp"
+                    android:layout_marginTop="70dp"
+                    android:layout_marginRight="60dp"
                     android:gravity="right">
 
                     <!-- Perfect Quiz, lagyan mo id -->
@@ -192,7 +195,7 @@
                 android:textSize="12sp"
                 android:textColor="#FB7F05"
                 android:fontFamily="@font/of_light"
-                android:layout_marginTop="460dp"
+                android:layout_marginTop="380dp"
                 android:layout_marginLeft="30dp"/>
 
             <TextView
@@ -202,7 +205,7 @@
                 android:text="Let's Play!"
                 android:textSize="45sp"
                 android:textColor="#FB7F05"
-                android:layout_marginTop="470dp"
+                android:layout_marginTop="390dp"
                 android:fontFamily="@font/of_bold"
                 android:layout_marginLeft="30dp"/>
 
@@ -212,10 +215,11 @@
                 android:dividerHeight="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="530dp">
+                android:layout_marginTop="460dp">
             </ListView>
         </RelativeLayout>
 
     </androidx.drawerlayout.widget.DrawerLayout>
+
 
 </RelativeLayout>

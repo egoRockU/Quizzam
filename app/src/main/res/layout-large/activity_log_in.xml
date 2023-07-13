@@ -17,7 +17,7 @@
         android:text="Quizzam!"
         android:textColor="#FFFFFF"
         android:textSize="60sp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="178dp"
         android:layout_centerHorizontal="true"/>
 
     <TextView
@@ -29,7 +29,7 @@
         android:textColor="#FFFFFF"
         android:textSize="12sp"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        android:layout_marginTop="215dp"
+        android:layout_marginTop="265dp"
         android:layout_centerHorizontal="true"/>
 
     <TextView
@@ -40,14 +40,14 @@
         android:text="100+ UCCAT reviewer questions that will"
         android:textColor="#FFFFFF"
         android:textSize="12sp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="250dp"
         android:layout_centerHorizontal="true" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/login"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="300dp"
         android:layout_marginBottom="40dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"

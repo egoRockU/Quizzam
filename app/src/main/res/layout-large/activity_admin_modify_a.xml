@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".adminDelete"
+    tools:context=".adminModifyQuiz"
     android:background="@drawable/last">
-
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,27 +13,29 @@
         android:layout_marginTop="15dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Quizzam!"
             android:fontFamily="@font/of_bold"
             android:textColor="#Ffffff"
             android:textSize="18sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="275dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:gravity="right"/>
 
         <!--TOP texts-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/of_light"
-            android:text="What do you want to delete?"
+            android:text="What should we modify?"
             android:textColor="#FB7F05"
             android:layout_marginTop="70dp"
             android:textSize="12sp"
             android:layout_marginLeft="30dp"/>
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Welcome!"
@@ -45,13 +46,23 @@
             android:layout_marginLeft="30dp"/>
 
         <ListView
-            android:id="@+id/lvShowDeleteQuiz"
-            android:divider="@null"
-            android:dividerHeight="0dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/lvShowQuiz"
             android:layout_marginTop="160dp"
-            android:layout_marginBottom="50dp"/>
+            android:layout_marginBottom="120dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:divider="@null"
+            android:dividerHeight="0dp" />
 
+        <Button
+            android:id="@+id/btnReturnToDashboard"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Return To Dashboard"
+            android:onClick="ReturnToDashboard"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/startbuttonshape"/>
     </RelativeLayout>
 </RelativeLayout>

@@ -7,9 +7,11 @@
     tools:context=".adminEditQuiz"
     android:background="@drawable/last">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -43,10 +45,11 @@
             android:fontFamily="@font/of_bold"
             android:layout_marginLeft="30dp"/>
 
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="150dp">
+            android:layout_marginTop="160dp">
             <EditText
                 android:id="@+id/edTxtEditQuizName"
                 android:layout_width="300dp"
@@ -80,13 +83,13 @@
                 android:textSize="16sp"
                 android:backgroundTint="#FA7E05"
                 android:textColorHint="#FA7E05"
-                android:layout_marginTop="75dp"/>
+                android:layout_marginTop="85dp"/>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="300dp"
-            android:layout_marginTop="310dp">
+            android:layout_marginTop="330dp">
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
@@ -218,12 +221,11 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="640dp"
+            android:layout_marginTop="730dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/startbuttonshape"
             android:text="Save Changes"
             android:textAllCaps="false"
             android:layout_centerHorizontal="true"/>
-
     </RelativeLayout>
 </RelativeLayout>

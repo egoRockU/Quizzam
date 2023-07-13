@@ -52,7 +52,7 @@
                 android:text="UCC Admission Test Reviewer (Science)"
                 android:textSize="20sp"
                 android:gravity="bottom"
-                android:layout_marginRight="100dp"
+                android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:textColor="@color/white"
                 android:paddingBottom="7dp"

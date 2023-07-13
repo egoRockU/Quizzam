@@ -4,32 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".adminViewB"
+    tools:context=".adminModifyShowQuestion"
     android:background="@drawable/last">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Quizzam!"
-        android:fontFamily="@font/of_bold"
-        android:textColor="#Ffffff"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:gravity="right"/>
 
     <!--TOP texts-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/of_light"
-        android:text="What do you want to view?"
+        android:text="What should we modify?"
         android:textColor="#FB7F05"
         android:layout_marginTop="70dp"
         android:textSize="12sp"
         android:layout_marginLeft="30dp"/>
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome!"
@@ -39,13 +29,15 @@
         android:fontFamily="@font/of_bold"
         android:layout_marginLeft="30dp"/>
 
-
     <ListView
-        android:id="@+id/listViewShowQuiz"
-        android:layout_width="407dp"
+        android:id="@+id/lvQuestions"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:divider="@null"
         android:dividerHeight="0dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="20dp"/>
+        />
+
+
 </RelativeLayout>

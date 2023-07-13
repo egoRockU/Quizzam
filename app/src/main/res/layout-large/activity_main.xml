@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgmain"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginBottom="150dp">
+
+        <Button
+            android:id="@+id/btnGetStart"
+            android:layout_width="223dp"
+            android:layout_height="48dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="550dp"
+            android:background="@drawable/startbuttonshape"
+            android:fontFamily="@font/roboto_bold"
+            android:onClick="Start"
+            android:text="Start Playing"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#005246" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="261dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:srcCompat="@drawable/ucclogo"
+            android:layout_marginTop="250dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/of_bold"
+            android:text="Quizzam!"
+            android:textColor="#FFFFFF"
+            android:textSize="60sp"
+            android:layout_marginTop="128dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:text="challenge you on different subjects"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            android:layout_marginTop="215dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:text="100+ UCCAT reviewer questions that will"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:layout_marginTop="200dp"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/tvSwitchToAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Switch to Admin"
+            android:fontFamily="@font/of_med"
+            android:textSize="14sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="620dp"
+            android:textStyle="italic"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

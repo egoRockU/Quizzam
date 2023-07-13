@@ -7,21 +7,21 @@
     tools:context=".adminDelete"
     android:background="@drawable/last">
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="15dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Quizzam!"
             android:fontFamily="@font/of_bold"
             android:textColor="#Ffffff"
             android:textSize="18sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="275dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:gravity="right"/>
 
         <!--TOP texts-->
         <TextView

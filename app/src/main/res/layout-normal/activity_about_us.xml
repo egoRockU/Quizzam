@@ -20,13 +20,13 @@
             android:text="Quizzam!"
             android:textColor="#FB7F05"
             android:textSize="12sp"
-            android:layout_marginTop="85dp"/>
+            android:layout_marginTop="70dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="95dp"
+            android:layout_marginTop="80dp"
             android:fontFamily="@font/of_bold"
             android:text="About us"
             android:textColor="#FB7F05"

@@ -135,7 +135,7 @@ public class LogIn extends AppCompatActivity {
 
     private void openGmail(){
         Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:" + "gerwinlagutan@gmail.com"));
+        intent.setData(Uri.parse("mailto:" + "quizzam.devs@gmail.com"));
         intent.putExtra(Intent.EXTRA_SUBJECT, "Contributor Application");
         intent.putExtra(Intent.EXTRA_TEXT, "1. Indicate your full name.\n2.Indicate Your Profession \n3. Are you related to University of Caloocan City by any chance? \n4. Tell us why do you want to be a contributor? \n5. Your Email\n" +
                 "Developers will give you a feedback once your application was reviewed.");

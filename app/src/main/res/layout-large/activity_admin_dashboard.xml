@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminDashboard"
+    android:background="@drawable/last">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quizzam!"
+            android:fontFamily="@font/of_bold"
+            android:textColor="#Ffffff"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:gravity="right"/>
+
+        <!--TOP texts-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/of_light"
+            android:text="What should we do?"
+            android:textColor="#FB7F05"
+            android:layout_marginTop="70dp"
+            android:textSize="12sp"
+            android:layout_marginLeft="30dp"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome!"
+            android:textSize="45sp"
+            android:textColor="#FB7F05"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/of_bold"
+            android:layout_marginLeft="30dp"/>
+
+        <!--TOP BUTTONS-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="170dp"
+            android:gravity="center"
+            >
+            <!--ADD BUTTONS-->
+            <FrameLayout
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                >
+
+                <ImageButton
+                    android:id="@+id/ibAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="103dp"
+                    android:layout_gravity="bottom"
+                    android:onClick="Add"
+                    android:src="@drawable/admindb_add"
+                    app:tint="#FB7F05"
+                    android:background="@drawable/admin_dashboard"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:padding="3dp"
+                    android:text="Add Quiz"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/admin_buttontext"
+                    android:fontFamily="@font/of_med"
+                    />
+            </FrameLayout>
+
+            <!--MODIFY BUTTONS-->
+            <FrameLayout
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                >
+
+                <ImageButton
+                    android:id="@+id/ibModify"
+                    android:onClick="Modify"
+                    android:layout_width="match_parent"
+                    android:layout_height="103dp"
+                    android:src="@drawable/admindb_modify"
+                    app:tint="#FB7F05"
+                    android:background="@drawable/admin_dashboard"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:padding="3dp"
+                    android:text="Modify Quiz"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/admin_buttontext"
+                    android:fontFamily="@font/of_med"
+                    />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <!--LOW BUTTONS-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="300dp"
+            android:gravity="center">
+
+            <!--View BUTTONS-->
+            <FrameLayout
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="12dp"
+                >
+
+                <ImageButton
+                    android:id="@+id/ibView"
+                    android:onClick="View"
+                    android:layout_width="match_parent"
+                    android:layout_height="103dp"
+                    android:src="@drawable/admindb_modify"
+                    app:tint="#FB7F05"
+                    android:background="@drawable/admin_dashboard"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:padding="3dp"
+                    android:text="View Quiz"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/admin_buttontext"
+                    android:fontFamily="@font/of_med"
+                    />
+
+            </FrameLayout>
+
+            <!--Delete BUTTONS-->
+            <FrameLayout
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="20dp"
+                >
+
+                <ImageButton
+                    android:id="@+id/ibDelete"
+                    android:onClick="Delete"
+                    android:layout_width="match_parent"
+                    android:layout_height="103dp"
+                    android:src="@drawable/admindb_modify"
+                    app:tint="#FB7F05"
+                    android:background="@drawable/admin_dashboard"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:padding="3dp"
+                    android:text="Delete Quiz"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/admin_buttontext"
+                    android:fontFamily="@font/of_med"
+                    />
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnSignOut"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="Sign Out"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="450dp"
+            android:background="@drawable/startbuttonshape"
+            />
+
+    </RelativeLayout>
+</RelativeLayout>

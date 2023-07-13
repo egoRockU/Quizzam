@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/last"
+    tools:context=".Quiz_Name_Constructor">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quizzam!"
+            android:fontFamily="@font/of_bold"
+            android:textColor="#Ffffff"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:gravity="right"/>
+
+        <TextView
+            android:id="@+id/tvSubject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/of_light"
+            android:text="UCC Admission Test Reviewer (subject)"
+            android:textColor="#FB7F05"
+            android:layout_marginTop="70dp"
+            android:textSize="12sp"
+            android:layout_marginLeft="30dp"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Let's Go!"
+            android:textSize="45sp"
+            android:textColor="#FB7F05"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/of_bold"
+            android:layout_marginLeft="30dp"/>
+
+        <ProgressBar
+            android:id="@+id/pgTimeLeft"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:max="29"
+            android:visibility="gone"
+            android:layout_marginTop="180dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:progressDrawable="@drawable/progressbar_design"/>
+
+        <RelativeLayout
+            android:layout_marginTop="225dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/quiz_names_shape"
+                    android:alpha="0.2"
+                    app:tint="#8A000000" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:fontFamily="@font/of_med"
+                    android:text="Question"
+                    android:textColor="@color/white"
+                    android:background="@drawable/quiz_names_shape"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/choicesList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginTop="390dp"
+            />
+
+        <TextView
+            android:id="@+id/tvItems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="_ of _"
+            android:fontFamily="@font/of_light"
+            android:textStyle="italic"
+            android:textColor="@color/black"
+            android:alpha=".5"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="800dp"
+            />
+    </RelativeLayout>
+</RelativeLayout>
