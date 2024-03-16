@@ -1,4 +1,4 @@
-[![Quizzam Banner](https://github.com/egoRockU/Quizzam/blob/master/screenshots/banner.PNG?raw=true)](https://drive.google.com/uc?export=download&id=1zy-m-jBz9e8L3y0dfZmL6Uc--8QIhczW "Quizzam Direct Download Link (Google Drive)")
+[![Quizzam Banner](https://github.com/egoRockU/Quizzam/blob/master/screenshots/banner.PNG?raw=true)](https://drive.google.com/uc?export=download&id=1zy-m-jBz9e8L3y0dfZmL6Uc--8QIhczW "Quizzam! Direct Download Link (Google Drive)")
 
 # Quizzam! 
 > 100+ UCCat reviewer questions that will challenge you on different subjects.
