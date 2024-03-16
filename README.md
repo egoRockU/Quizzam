@@ -1,6 +1,6 @@
 [![Quizzam Banner](https://github.com/egoRockU/Quizzam/blob/master/screenshots/banner.PNG?raw=true)](https://drive.google.com/uc?export=download&id=1zy-m-jBz9e8L3y0dfZmL6Uc--8QIhczW "Quizzam Direct Download Link (Google Drive)")
 
-## Quizzam! 
+# Quizzam! 
 > 100+ UCCat reviewer questions that will challenge you on different subjects.
 
 #### Made with: ![Static Badge](https://img.shields.io/badge/androidstudio-darkgreen?style=flat&logo=androidstudio) ![Static Badge](https://img.shields.io/badge/figma-black?style=flat&logo=figma) ![Static Badge](https://img.shields.io/badge/firebase-blue?style=flat&logo=firebase)
