@@ -3,7 +3,7 @@
 # Quizzam! 
 > 100+ UCCat reviewer questions that will challenge you on different subjects.
 
-#### Made with: ![Static Badge](https://img.shields.io/badge/androidstudio-darkgreen?style=flat&logo=androidstudio) ![Static Badge](https://img.shields.io/badge/figma-black?style=flat&logo=figma) ![Static Badge](https://img.shields.io/badge/firebase-blue?style=flat&logo=firebase)
+#### Made with: [![Static Badge](https://img.shields.io/badge/androidstudio-darkgreen?style=flat&logo=androidstudio)](https://developer.android.com/studio) [![Static Badge](https://img.shields.io/badge/figma-black?style=flat&logo=figma)](https://www.figma.com/) [![Static Badge](https://img.shields.io/badge/firebase-blue?style=flat&logo=firebase)](https://firebase.google.com/)
 
 Quizzam! is a mobile application software that enables users to quiz themselves on numerous
 subjects to evaluate their knowledge and assess their level of understanding. This program was made to
